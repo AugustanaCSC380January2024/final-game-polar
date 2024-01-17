@@ -4938,3 +4938,12 @@ layer_0/tile_data = PackedInt32Array(-524291, 262144, 7, -458755, 262144, 8, -39
 [node name="Skeleton" parent="." instance=ExtResource("4_q6vn0")]
 z_index = -1
 position = Vector2(-39, -28)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -111
+offset_left = -467.0
+offset_top = -333.0
+offset_right = -427.0
+offset_bottom = -293.0
+scale = Vector2(25.0524, 18.6928)
+color = Color(0.027451, 0.027451, 0.027451, 1)

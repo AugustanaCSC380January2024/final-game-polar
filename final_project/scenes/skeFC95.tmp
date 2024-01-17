@@ -320,9 +320,8 @@ position = Vector2(0, 6)
 scale = Vector2(1.36944, 1.05802)
 shape = SubResource("CapsuleShape2D_lq8gc")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_m5s4r")
-initial_state = NodePath("EnemyIdle")
 
 [node name="EnemyIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_0v3n3")
