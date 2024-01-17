@@ -1,9 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://devxaguskl6sd"]
+[gd_scene load_steps=44 format=3 uid="uid://devxaguskl6sd"]
 
 [ext_resource type="Texture2D" uid="uid://bttdn5b3rmkph" path="res://assets/characters/skeleton.png" id="1_0wj4l"]
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_axydl"]
-[ext_resource type="Script" path="res://scripts/states/StateMachine.gd" id="3_m5s4r"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_b07ld"]
 [ext_resource type="Script" path="res://scripts/states/enemy_idle.gd" id="4_0v3n3"]
+[ext_resource type="Script" path="res://scripts/states/enemy_follow.gd" id="5_5fj6a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kp6ea"]
 atlas = ExtResource("1_0wj4l")
@@ -321,9 +322,13 @@ scale = Vector2(1.36944, 1.05802)
 shape = SubResource("CapsuleShape2D_lq8gc")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_m5s4r")
-initial_state = NodePath("EnemyIdle")
+script = ExtResource("3_b07ld")
+initial_state = NodePath("EnemyFollow")
 
 [node name="EnemyIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_0v3n3")
+enemy = NodePath("../..")
+
+[node name="EnemyFollow" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_5fj6a")
 enemy = NodePath("../..")

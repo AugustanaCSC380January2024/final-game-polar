@@ -14,7 +14,7 @@ func randomize_wander():
 func enter():
 	randomize_wander()
 	
-func Update(delta: float):
+func update(delta: float):
 	if wander_time > 0:
 		wander_time -= delta
 	else:
