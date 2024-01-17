@@ -22,8 +22,13 @@ func _physics_process(delta):
 	update_animations(direction)
 
 func update_animations(direction):
+	
 	if velocity.x == 0 && velocity.y == 0:
 		animated_sprite.play("idle_" + direction)
 	else:
 		animated_sprite.play("walk_" + direction)
 		
+func _input(event):
+	if event.is_action_pressed("attack"):
+		print("attack")
+		animated_sprite.play("attack")

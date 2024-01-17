@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b3rugo8jdxodo"]
+[gd_scene load_steps=41 format=3 uid="uid://b3rugo8jdxodo"]
 
 [ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="1_ps600"]
 [ext_resource type="Texture2D" uid="uid://drtwdunne2wc5" path="res://assets/player_spritesheet.png" id="2_lhmst"]
@@ -298,7 +298,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmp5"]
+height = 45.0
+
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 2
 script = ExtResource("1_ps600")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -308,5 +313,8 @@ animation = &"idle_right"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.25, 12.5)
+shape = SubResource("CapsuleShape2D_ffmp5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
