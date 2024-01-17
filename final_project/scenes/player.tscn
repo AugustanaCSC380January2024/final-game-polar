@@ -1,6 +1,6 @@
 [gd_scene load_steps=41 format=3 uid="uid://b3rugo8jdxodo"]
 
-[ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="1_ps600"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_2kea2"]
 [ext_resource type="Texture2D" uid="uid://drtwdunne2wc5" path="res://assets/player_spritesheet.png" id="2_lhmst"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqyi6"]
@@ -304,7 +304,7 @@ height = 45.0
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
-script = ExtResource("1_ps600")
+script = ExtResource("1_2kea2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 6)
@@ -317,4 +317,4 @@ position = Vector2(1.25, 12.5)
 shape = SubResource("CapsuleShape2D_ffmp5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2.5, 2.5)
