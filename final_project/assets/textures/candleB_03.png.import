@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8ir8j022vb48"
-path="res://.godot/imported/candleB_01.png-2a151e5cf9fe1b8e3aedaf742797051d.ctex"
+uid="uid://c7hxpdxox4kb7"
+path="res://.godot/imported/candleB_03.png-ca82afc77769483d647d06f86c343c7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/candleB_01.png"
-dest_files=["res://.godot/imported/candleB_01.png-2a151e5cf9fe1b8e3aedaf742797051d.ctex"]
+source_file="res://assets/textures/candleB_03.png"
+dest_files=["res://.godot/imported/candleB_03.png-ca82afc77769483d647d06f86c343c7b.ctex"]
 
 [params]
 

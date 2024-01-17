@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fy1x4ljbvflk"
-path="res://.godot/imported/torch_2.png-cdca775d7173073e1ec0b0c461b63ae0.ctex"
+uid="uid://by4xoju8bhr5p"
+path="res://.godot/imported/spike_2.png-11a286f824cfba0aff9bd5bb7116788d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/torch_2.png"
-dest_files=["res://.godot/imported/torch_2.png-cdca775d7173073e1ec0b0c461b63ae0.ctex"]
+source_file="res://assets/textures/spike_2.png"
+dest_files=["res://.godot/imported/spike_2.png-11a286f824cfba0aff9bd5bb7116788d.ctex"]
 
 [params]
 

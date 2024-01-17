@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drtwdunne2wc5"
-path="res://.godot/imported/player_spritesheet.png-49e4e28c9fd9e070507b3c35f0ea0cef.ctex"
+uid="uid://dw048afaipkfx"
+path="res://.godot/imported/candleA_03.png-e0441b916df967e7df45204b4c9a72f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_spritesheet.png"
-dest_files=["res://.godot/imported/player_spritesheet.png-49e4e28c9fd9e070507b3c35f0ea0cef.ctex"]
+source_file="res://assets/textures/candleA_03.png"
+dest_files=["res://.godot/imported/candleA_03.png-e0441b916df967e7df45204b4c9a72f1.ctex"]
 
 [params]
 

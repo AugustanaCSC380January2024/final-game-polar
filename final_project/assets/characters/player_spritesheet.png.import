@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3nfau1kx1b64"
-path="res://.godot/imported/candleA_01.png-3f0cef927643056fb124923457e165ea.ctex"
+uid="uid://drtwdunne2wc5"
+path="res://.godot/imported/player_spritesheet.png-7e76f97a17946ec512358d45f2527da8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/candleA_01.png"
-dest_files=["res://.godot/imported/candleA_01.png-3f0cef927643056fb124923457e165ea.ctex"]
+source_file="res://assets/characters/player_spritesheet.png"
+dest_files=["res://.godot/imported/player_spritesheet.png-7e76f97a17946ec512358d45f2527da8.ctex"]
 
 [params]
 
