@@ -323,7 +323,7 @@ shape = SubResource("CapsuleShape2D_lq8gc")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_b07ld")
-initial_state = NodePath("EnemyFollow")
+initial_state = NodePath("EnemyIdle")
 
 [node name="EnemyIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_0v3n3")
@@ -332,3 +332,5 @@ enemy = NodePath("../..")
 [node name="EnemyFollow" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_5fj6a")
 enemy = NodePath("../..")
+
+[connection signal="transitioned" from="StateMachine/EnemyFollow" to="StateMachine" method="_on_enemy_follow_transitioned"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://b3rugo8jdxodo"]
+[gd_scene load_steps=48 format=3 uid="uid://b3rugo8jdxodo"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2kea2"]
 [ext_resource type="Texture2D" uid="uid://drtwdunne2wc5" path="res://assets/characters/player_spritesheet.png" id="2_lhmst"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_nid82"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5yk55"]
 atlas = ExtResource("2_lhmst")
@@ -367,3 +368,6 @@ shape = SubResource("CapsuleShape2D_ffmp5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_nid82")
