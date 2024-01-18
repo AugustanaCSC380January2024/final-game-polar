@@ -27,7 +27,6 @@ func update(delta: float):
 func physics_update(delta):
 	if enemy:
 		enemy.velocity = move_direction * move_speed
-		print(enemy.velocity)
 		enemy.move_and_slide()
 	
 	var direction = player.global_position - enemy.global_position
