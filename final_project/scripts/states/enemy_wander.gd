@@ -1,5 +1,5 @@
 extends State
-class_name EnemyIdle
+class_name EnemyWander
 
 @export var enemy: CharacterBody2D
 @export var move_speed := 10.0
@@ -15,6 +15,8 @@ func randomize_wander():
 	#print(move_direction)
 
 func enter():
+	print("wander")
+	enemy.is_attacking = false
 	player = get_tree().get_first_node_in_group("player")
 	randomize_wander()
 
@@ -27,8 +29,17 @@ func update(delta: float):
 func physics_update(delta):
 	if enemy:
 		enemy.velocity = move_direction * move_speed
-		enemy.move_and_slide()
+		if enemy.velocity.x < 0:
+			enemy.direction = "left"
+		elif enemy.velocity.x > 0:
+			enemy.direction = "right"
+		elif enemy.velocity.y < 0:
+			enemy.direction = "up"
+		else:
+			enemy.direction = "down"
+		#enemy.move_and_slide()
+		#enemy.update_animations(enemy.direction)
 	
 	var direction = player.global_position - enemy.global_position
-	if direction.length() < 30:
+	if direction.length() < 50:
 		transitioned.emit(self, "EnemyFollow")

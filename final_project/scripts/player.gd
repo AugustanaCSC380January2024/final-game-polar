@@ -13,28 +13,34 @@ func _physics_process(delta):
 	if Input.is_action_pressed("walk_down"):
 		velocity.y = player_speed
 		direction = "down"
-		is_attacking = false
+		if !animated_sprite.is_playing():
+			is_attacking = false
 	if Input.is_action_pressed("walk_up"):
 		velocity.y = -player_speed
 		direction = "up"
-		is_attacking = false
+	if !animated_sprite.is_playing():
+			is_attacking = false
 	if Input.is_action_pressed("walk_left"):
 		velocity.x = -player_speed
 		direction = "left"
-		is_attacking = false
+		if !animated_sprite.is_playing():
+			is_attacking = false
 	if Input.is_action_pressed("walk_right"):
 		velocity.x = player_speed
 		direction = "right"
-		is_attacking = false
+		if !animated_sprite.is_playing():
+			is_attacking = false
 	if Input.is_action_just_pressed("attack"):
 		is_attacking = true
+	if is_attacking:
+		velocity = Vector2()
 	move_and_slide()
 	update_animations(direction)
 
 func update_animations(direction):
 	if animated_sprite :
 		if Input.is_action_just_pressed("attack"):
-			animated_sprite.play("attack")
+			animated_sprite.play("attack_" + direction)
 		if is_attacking != true:
 			if velocity.x == 0 && velocity.y == 0 :
 				animated_sprite.play("idle_" + direction)
