@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://b3rugo8jdxodo"]
+[gd_scene load_steps=68 format=3 uid="uid://b3rugo8jdxodo"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2kea2"]
 [ext_resource type="Texture2D" uid="uid://drtwdunne2wc5" path="res://assets/characters/player_spritesheet.png" id="2_lhmst"]
@@ -488,6 +488,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgqb2"]
+height = 45.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmp5"]
 height = 45.0
 
@@ -503,10 +506,6 @@ sprite_frames = SubResource("SpriteFrames_x0xu5")
 animation = &"attack_right"
 autoplay = "idle_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.25, 12.5)
-shape = SubResource("CapsuleShape2D_ffmp5")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
@@ -517,4 +516,19 @@ script = ExtResource("3_nid82")
 script = ExtResource("4_5wvk5")
 player = NodePath("../..")
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(2.5, 12.5)
+shape = SubResource("CapsuleShape2D_wgqb2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.25, 12.5)
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_ffmp5")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

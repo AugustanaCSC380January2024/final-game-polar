@@ -8,6 +8,8 @@ var direction = "down"
 var health = 100
 var is_attacking = false
 
+signal died
+
 func _physics_process(delta):
 	velocity = Vector2(0,0)
 	if Input.is_action_pressed("walk_down"):
@@ -48,6 +50,9 @@ func update_animations(direction):
 				animated_sprite.play("walk_" + direction)
 			
 
-
-
+func _on_hurtbox_body_entered(body):
+	health -= 50
+	print(health)
+	if health == 0:
+		died.emit()
 

@@ -7,7 +7,6 @@ var new_velocity
 var player: CharacterBody2D
 
 func enter():
-	print("follow")
 	enemy.is_attacking = false
 	player = get_tree().get_first_node_in_group("player")
 

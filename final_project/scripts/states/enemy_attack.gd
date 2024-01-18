@@ -6,7 +6,6 @@ var player: CharacterBody2D
 
 func enter():
 	enemy.velocity = Vector2()
-	print("attack")
 	enemy.is_attacking = true
 	player = get_tree().get_first_node_in_group("player")
 

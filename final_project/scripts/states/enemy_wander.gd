@@ -15,7 +15,6 @@ func randomize_wander():
 	#print(move_direction)
 
 func enter():
-	print("wander")
 	enemy.is_attacking = false
 	player = get_tree().get_first_node_in_group("player")
 	randomize_wander()
