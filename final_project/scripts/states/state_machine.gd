@@ -30,14 +30,15 @@ func on_child_transition(state, new_state_name):
 	var new_state = states.get(new_state_name.to_lower())
 	
 	if !new_state:
-		#print(new_state)
 		return
 	
 	if current_state != null:
 		current_state.exit()
-		print("transitioned")
 	
 	new_state.enter()
-	
+
 	current_state = new_state
 
+func _unhandled_input(event):
+	if current_state:
+		current_state.handle_input(event)

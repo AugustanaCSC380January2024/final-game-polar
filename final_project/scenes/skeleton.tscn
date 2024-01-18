@@ -307,7 +307,7 @@ height = 35.9162
 
 [node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_axydl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -8,4 +8,4 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	animated_sprite.play("walk_down")
-	print($StateMachine.current_state)
+	print(velocity)
