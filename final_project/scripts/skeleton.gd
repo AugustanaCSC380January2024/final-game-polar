@@ -6,6 +6,7 @@ class_name Skeleton
 
 var direction = "up"
 var is_attacking = false
+@export var health = 100
 
 func _physics_process(delta):
 	if is_attacking:
@@ -30,3 +31,8 @@ func update_animations(direction):
 			animated_sprite.play("idle_" + direction)
 		else:
 			animated_sprite.play("walk_" + direction)
+
+
+func _on_hurtbox_body_entered(body):
+	print("skeleton body entered")
+	

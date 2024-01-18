@@ -40,5 +40,5 @@ func physics_update(delta):
 		#enemy.update_animations(enemy.direction)
 	
 	var direction = player.global_position - enemy.global_position
-	if direction.length() < 50:
+	if direction.length() < 100:
 		transitioned.emit(self, "EnemyFollow")

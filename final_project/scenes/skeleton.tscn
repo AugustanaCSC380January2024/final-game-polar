@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://devxaguskl6sd"]
+[gd_scene load_steps=70 format=3 uid="uid://devxaguskl6sd"]
 
 [ext_resource type="Texture2D" uid="uid://bttdn5b3rmkph" path="res://assets/characters/skeleton.png" id="1_0wj4l"]
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_axydl"]
@@ -494,6 +494,9 @@ animations = [{
 radius = 8.03246
 height = 35.9162
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2qw86"]
+height = 38.0
+
 [node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 4
 motion_mode = 1
@@ -506,6 +509,7 @@ animation = &"attack_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 6)
 scale = Vector2(1.36944, 1.05802)
 shape = SubResource("CapsuleShape2D_lq8gc")
@@ -525,3 +529,13 @@ enemy = NodePath("../..")
 [node name="EnemyAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("6_l7kbb")
 enemy = NodePath("../..")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_2qw86")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
