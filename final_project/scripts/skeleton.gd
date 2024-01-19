@@ -34,19 +34,16 @@ func update_animations(direction):
 		else:
 			animated_sprite.play("walk_" + direction)
 
-
 func _on_hurtbox_body_entered(body):
 	pass
 
-
 func take_damage(damage: int):
-	
 	health = 0
 	died.emit()
+	print(health)
 	if health <= 0:
 		print("test")
 		died.emit()
 
-
 func _on_hitbox_body_entered(body):
-	print("hitbox")
+	pass

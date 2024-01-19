@@ -9,35 +9,28 @@ var direction = "down"
 var health = 100
 var is_attacking = false
 var enemies_to_attack = []
+var player_died = false
 
 signal died
 signal took_damage
 
 func _physics_process(delta):
-	if !Input.is_anything_pressed():
-		velocity = Vector2()
-	move_and_slide()
-	update_animations(direction)
+	if !player_died:
+		if !Input.is_anything_pressed():
+			velocity = Vector2()
+		move_and_slide()
+		update_animations(direction)
 
 func update_animations(direction):
 	if animated_sprite :
-		if Input.is_action_just_pressed("attack"):
-			animated_sprite.play("attack_" + direction)
-		if is_attacking != true:
-			if velocity.x == 0 && velocity.y == 0 :
-				animated_sprite.play("idle_" + direction)
-			else:
-				animated_sprite.play("walk_" + direction)
-			
-
-func _on_hurtbox_body_entered(body):
-	print("hurtbox")
-	enemies_to_attack.append(body)
-	body.take_damage(100)
-	if body is Skeleton:
-		#health -= 100
-		if health <= 0:
-			died.emit()
+		if !player_died:
+			if Input.is_action_just_pressed("attack"):
+				animated_sprite.play("attack_" + direction)
+			if is_attacking != true:
+				if velocity.x == 0 && velocity.y == 0 :
+					animated_sprite.play("idle_" + direction)
+				else:
+					animated_sprite.play("walk_" + direction)
 
 func _input(event):
 	if Input.is_action_pressed("walk_down"):
@@ -68,9 +61,29 @@ func _input(event):
 
 func attack():
 	for body in enemies_to_attack:
-		body.take_damage(10)
+		body.get_parent().take_damage(10)
+
+func _on_hurtbox_area_entered(area):
+	if area.get_parent() is Skeleton:
+		print("take damage")
+		health -= 100
+		took_damage.emit()
+		if health <= 0:
+			player_died = true
+			animated_sprite.stop()
+			animated_sprite.play("died")
+			died.emit()
+
+func _on_hurtbox_area_exited(area):
+	pass
 
 
-func _on_hurtbox_body_exited(body):
-	if enemies_to_attack.has(body):
-		enemies_to_attack.erase(body)
+func _on_hitbox_area_entered(area):
+	print("hitbox entered")
+	enemies_to_attack.append(area)
+
+
+func _on_hitbox_area_exited(area):
+	print("hitbox exited")
+	if enemies_to_attack.has(area):
+		enemies_to_attack.erase(area)

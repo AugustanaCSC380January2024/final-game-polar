@@ -526,7 +526,6 @@ script = ExtResource("1_2kea2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1.25, 12.5)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_ffmp5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -534,7 +533,7 @@ position = Vector2(2, 6)
 sprite_frames = SubResource("SpriteFrames_x0xu5")
 animation = &"idle_left"
 autoplay = "idle_down"
-frame_progress = 0.149276
+frame_progress = 0.512342
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -556,11 +555,15 @@ position = Vector2(2.5, 12.5)
 shape = SubResource("CapsuleShape2D_wgqb2")
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(2.5, 12.5)
+position = Vector2(2.38419e-07, 12.5)
 shape = SubResource("CapsuleShape2D_j7ck6")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]

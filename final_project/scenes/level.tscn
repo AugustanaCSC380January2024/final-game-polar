@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bk336ucxl1g14"]
+[gd_scene load_steps=19 format=3 uid="uid://bk336ucxl1g14"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_eoaks"]
 [ext_resource type="PackedScene" uid="uid://b3rugo8jdxodo" path="res://scenes/player.tscn" id="1_oqjrj"]
 [ext_resource type="Texture2D" uid="uid://b52bksk8gbefr" path="res://assets/textures/mainlevbuild.png" id="2_a6tak"]
+[ext_resource type="PackedScene" uid="uid://bpoe7qy2jfm00" path="res://scenes/hud.tscn" id="2_osppn"]
 [ext_resource type="Texture2D" uid="uid://b5ei0pecsaqk7" path="res://assets/textures/decorative.png" id="3_wcd0f"]
 [ext_resource type="PackedScene" uid="uid://devxaguskl6sd" path="res://scenes/skeleton.tscn" id="4_q6vn0"]
 
@@ -4944,8 +4945,18 @@ sources/0 = SubResource("TileSetAtlasSource_su63m")
 pattern_0 = SubResource("TileMapPattern_3lp3b")
 
 [node name="Level" type="Node2D"]
-position = Vector2(0, -34)
+position = Vector2(588, 502)
 script = ExtResource("1_eoaks")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="HUD" parent="UI" instance=ExtResource("2_osppn")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Walls" type="TileMap" parent="."]
 z_index = -99
@@ -4982,4 +4993,6 @@ position = Vector2(163, 63)
 scale = Vector2(0.8, 0.8)
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="took_damage" from="Player" to="." method="_on_player_took_damage"]
 [connection signal="died" from="Skeleton" to="." method="_on_skeleton_died"]
+[connection signal="died" from="Skeleton2" to="." method="_on_skeleton_2_died"]
