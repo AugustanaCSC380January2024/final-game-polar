@@ -8,6 +8,8 @@ var direction = "up"
 var is_attacking = false
 @export var health = 100
 
+signal died
+
 func _physics_process(delta):
 	if is_attacking:
 		velocity = Vector2()
@@ -34,5 +36,13 @@ func update_animations(direction):
 
 
 func _on_hurtbox_body_entered(body):
-	print("skeleton body entered")
-	
+	pass
+
+
+func take_damage(damage: int):
+	health -= damage
+	print(health)
+	died.emit()
+	if health <= 0:
+		print("test")
+		died.emit()

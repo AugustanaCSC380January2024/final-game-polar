@@ -4982,3 +4982,4 @@ position = Vector2(163, 63)
 scale = Vector2(0.8, 0.8)
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="died" from="Skeleton" to="." method="_on_skeleton_died"]
