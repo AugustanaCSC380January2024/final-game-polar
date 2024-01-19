@@ -40,9 +40,13 @@ func _on_hurtbox_body_entered(body):
 
 
 func take_damage(damage: int):
-	health -= damage
-	print(health)
+	
+	health = 0
 	died.emit()
 	if health <= 0:
 		print("test")
 		died.emit()
+
+
+func _on_hitbox_body_entered(body):
+	print("hitbox")

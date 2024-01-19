@@ -14,6 +14,32 @@ signal died
 signal took_damage
 
 func _physics_process(delta):
+	if !Input.is_anything_pressed():
+		velocity = Vector2()
+	move_and_slide()
+	update_animations(direction)
+
+func update_animations(direction):
+	if animated_sprite :
+		if Input.is_action_just_pressed("attack"):
+			animated_sprite.play("attack_" + direction)
+		if is_attacking != true:
+			if velocity.x == 0 && velocity.y == 0 :
+				animated_sprite.play("idle_" + direction)
+			else:
+				animated_sprite.play("walk_" + direction)
+			
+
+func _on_hurtbox_body_entered(body):
+	print("hurtbox")
+	enemies_to_attack.append(body)
+	body.take_damage(100)
+	if body is Skeleton:
+		#health -= 100
+		if health <= 0:
+			died.emit()
+
+func _input(event):
 	if Input.is_action_pressed("walk_down"):
 		velocity.y = player_speed
 		direction = "down"
@@ -39,35 +65,6 @@ func _physics_process(delta):
 		attack()
 	if is_attacking:
 		velocity = Vector2()
-	if !Input.is_anything_pressed():
-		velocity = Vector2()
-	move_and_slide()
-	update_animations(direction)
-
-func update_animations(direction):
-	if animated_sprite :
-		if Input.is_action_just_pressed("attack"):
-			animated_sprite.play("attack_" + direction)
-		if is_attacking != true:
-			if velocity.x == 0 && velocity.y == 0 :
-				animated_sprite.play("idle_" + direction)
-			else:
-				animated_sprite.play("walk_" + direction)
-			
-
-func _on_hurtbox_body_entered(body):
-	enemies_to_attack.append(body)
-	print(enemies_to_attack)
-	body.take_damage(100)
-	print(body.health)
-	if body is Skeleton:
-		#health -= 100
-		print(health)
-		if health <= 0:
-			died.emit()
-
-func _input(event):
-	pass
 
 func attack():
 	for body in enemies_to_attack:
@@ -77,4 +74,3 @@ func attack():
 func _on_hurtbox_body_exited(body):
 	if enemies_to_attack.has(body):
 		enemies_to_attack.erase(body)
-		print(enemies_to_attack)
