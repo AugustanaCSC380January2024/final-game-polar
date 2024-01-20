@@ -13,6 +13,7 @@ var player_died = false
 
 signal died
 signal took_damage
+signal interact
 
 func _physics_process(delta):
 	if !player_died:
@@ -61,7 +62,8 @@ func _input(event):
 		is_attacking = true
 		velocity = Vector2()
 		attack()
-	
+	if Input.is_action_just_pressed("interact"):
+		interact.emit()
 
 func attack():
 	for body in enemies_to_attack:
