@@ -37,5 +37,4 @@ func _on_player_took_damage():
 	hud.set_health_label(health)
 
 func _on_door_entered(next_level):
-	print(next_level)
 	get_tree().change_scene_to_packed(next_level)

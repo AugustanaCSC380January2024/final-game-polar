@@ -508,7 +508,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmp5"]
-height = 45.0
+radius = 7.5
+height = 27.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgqb2"]
 height = 45.0
@@ -526,18 +527,16 @@ script = ExtResource("1_2kea2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 6)
 sprite_frames = SubResource("SpriteFrames_x0xu5")
-animation = &"attack_right"
+animation = &"idle_up"
 autoplay = "idle_down"
-frame = 4
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(1.25, 12.5)
+position = Vector2(2.5, 28.75)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ffmp5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_nid82")
@@ -560,6 +559,7 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 position = Vector2(3.75, 12.5)
 shape = SubResource("CapsuleShape2D_j7ck6")
 
