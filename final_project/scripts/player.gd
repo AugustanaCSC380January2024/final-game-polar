@@ -33,6 +33,10 @@ func update_animations(direction):
 					animated_sprite.play("walk_" + direction)
 
 func _input(event):
+	if Input.is_action_just_released("walk_down") || Input.is_action_just_released("walk_up"):
+		velocity.y = 0
+	if Input.is_action_just_released("walk_left") || Input.is_action_just_released("walk_right"):
+		velocity.x = 0
 	if Input.is_action_pressed("walk_down"):
 		velocity.y = player_speed
 		direction = "down"
@@ -55,19 +59,28 @@ func _input(event):
 			is_attacking = false
 	if Input.is_action_just_pressed("attack"):
 		is_attacking = true
-		attack()
-	if is_attacking:
 		velocity = Vector2()
+		attack()
+	
 
 func attack():
 	for body in enemies_to_attack:
 		body.get_parent().take_damage(10)
 
+func take_damage(amount):
+	print("player take damage")
+	health -= amount
+	if health <= 0:
+		player_died = true
+		animated_sprite.stop()
+		animated_sprite.play("died")
+		died.emit()
+
 func _on_hurtbox_area_entered(area):
 	if area.get_parent() is Skeleton:
-		print("take damage")
-		health -= 100
-		took_damage.emit()
+		#print("take damage")
+		#health -= 10
+		#took_damage.emit()
 		if health <= 0:
 			player_died = true
 			animated_sprite.stop()
@@ -79,11 +92,9 @@ func _on_hurtbox_area_exited(area):
 
 
 func _on_hitbox_area_entered(area):
-	print("hitbox entered")
 	enemies_to_attack.append(area)
 
 
 func _on_hitbox_area_exited(area):
-	print("hitbox exited")
 	if enemies_to_attack.has(area):
 		enemies_to_attack.erase(area)

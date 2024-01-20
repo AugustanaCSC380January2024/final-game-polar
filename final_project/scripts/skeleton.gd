@@ -4,8 +4,10 @@ class_name Skeleton
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+var player = null
 var direction = "up"
 var is_attacking = false
+var skeleton_died = false
 @export var health = 100
 
 signal died
@@ -26,13 +28,14 @@ func _physics_process(delta):
 	update_animations(direction)
 
 func update_animations(direction):
-	if is_attacking == true:
-		animated_sprite.play("attack_" + direction)
-	else:
-		if velocity.x == 0 && velocity.y == 0 :
-			animated_sprite.play("idle_" + direction)
+	if !skeleton_died:
+		if is_attacking == true:
+			animated_sprite.play("attack_" + direction)
 		else:
-			animated_sprite.play("walk_" + direction)
+			if velocity.x == 0 && velocity.y == 0 :
+				animated_sprite.play("idle_" + direction)
+			else:
+				animated_sprite.play("walk_" + direction)
 
 func _on_hurtbox_body_entered(body):
 	pass
@@ -40,10 +43,18 @@ func _on_hurtbox_body_entered(body):
 func take_damage(damage: int):
 	health = 0
 	died.emit()
-	print(health)
 	if health <= 0:
-		print("test")
+		skeleton_died = true
+		animated_sprite.play("died")
 		died.emit()
 
 func _on_hitbox_body_entered(body):
-	pass
+	player = body
+
+func _on_hitbox_body_exited(body):
+	if body == player:
+		player = null
+
+func attack():
+	if player != null:
+		player.take_damage(10)

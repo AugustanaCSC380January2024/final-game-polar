@@ -3,6 +3,7 @@ class_name EnemyAttack
 
 @export var enemy: CharacterBody2D
 var player: CharacterBody2D
+var attack_time = 1.0
 
 func enter():
 	enemy.velocity = Vector2()
@@ -14,4 +15,10 @@ func physics_update(delta: float):
 	#print("attack")
 	if direction.length() > 25:
 		transitioned.emit(self, "EnemyFollow")
-	
+
+func update(delta: float):
+	if attack_time > 0:
+		attack_time -= delta
+	else:
+		enemy.attack()
+		attack_time = 1.0

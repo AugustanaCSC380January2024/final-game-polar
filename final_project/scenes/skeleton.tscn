@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://devxaguskl6sd"]
+[gd_scene load_steps=72 format=3 uid="uid://devxaguskl6sd"]
 
 [ext_resource type="Texture2D" uid="uid://bttdn5b3rmkph" path="res://assets/characters/skeleton.png" id="1_0wj4l"]
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_axydl"]
@@ -82,6 +82,30 @@ region = Rect2(256, 768, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb414"]
 atlas = ExtResource("1_0wj4l")
 region = Rect2(320, 768, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v26kb"]
+atlas = ExtResource("1_0wj4l")
+region = Rect2(0, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etiqr"]
+atlas = ExtResource("1_0wj4l")
+region = Rect2(64, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g63du"]
+atlas = ExtResource("1_0wj4l")
+region = Rect2(128, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7661"]
+atlas = ExtResource("1_0wj4l")
+region = Rect2(192, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm5br"]
+atlas = ExtResource("1_0wj4l")
+region = Rect2(256, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vwk2"]
+atlas = ExtResource("1_0wj4l")
+region = Rect2(320, 1280, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kp6ea"]
 atlas = ExtResource("1_0wj4l")
@@ -308,6 +332,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_v26kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etiqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g63du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7661")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm5br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vwk2")
+}],
+"loop": false,
+"name": &"died",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_kp6ea")
 }],
 "loop": false,
@@ -474,9 +521,10 @@ script = ExtResource("1_axydl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_l26s4")
-animation = &"walk_up"
+animation = &"died"
 autoplay = "idle_down"
-frame_progress = 0.448549
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -519,3 +567,4 @@ shape = SubResource("CapsuleShape2D_355el")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
