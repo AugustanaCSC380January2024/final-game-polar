@@ -8,8 +8,7 @@ func _ready():
 	hud.set_health_label(health)
 	var doors = get_tree().get_nodes_in_group("doors")
 	for door in doors:
-		door
-		door.player_entered.connect(_on_door_entered)
+		door.player_entered.connect(_on_door_entered.bind(door.next_level))
 
 func _on_player_died():
 	await get_tree().create_timer(1.0).timeout
@@ -26,8 +25,10 @@ func _on_skeleton_2_died():
 
 
 func _on_player_took_damage():
+	print("damage signal")
 	health = $Player.health
 	hud.set_health_label(health)
 
-func _on_door_entered():
-	print("door entered")
+func _on_door_entered(next_level):
+	print(next_level)
+	get_tree().change_scene_to_packed(next_level)

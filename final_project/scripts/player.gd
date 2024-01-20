@@ -72,6 +72,7 @@ func attack():
 func take_damage(amount):
 	print("player take damage")
 	health -= amount
+	took_damage.emit()
 	if health <= 0:
 		player_died = true
 		animated_sprite.stop()

@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var next_level: PackedScene
+
 var player = null
 signal player_entered
 
