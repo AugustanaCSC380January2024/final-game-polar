@@ -513,7 +513,7 @@ height = 38.0
 radius = 17.0
 height = 44.0
 
-[node name="Skeleton" type="CharacterBody2D"]
+[node name="Skeleton" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_axydl")

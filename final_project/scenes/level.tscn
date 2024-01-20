@@ -5016,5 +5016,3 @@ next_level = ExtResource("9_7gfbn")
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="interact" from="Player" to="." method="_on_player_interact"]
 [connection signal="took_damage" from="Player" to="." method="_on_player_took_damage"]
-[connection signal="died" from="Skeleton" to="." method="_on_skeleton_died"]
-[connection signal="died" from="Skeleton2" to="." method="_on_skeleton_2_died"]

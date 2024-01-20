@@ -534,7 +534,6 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1.25, 12.5)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_ffmp5")
 
 [node name="Camera2D" type="Camera2D" parent="."]

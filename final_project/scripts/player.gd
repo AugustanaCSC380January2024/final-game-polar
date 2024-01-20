@@ -6,7 +6,7 @@ class_name Player
 @onready var animated_sprite = $AnimatedSprite2D
 @export var player_speed = 100
 var direction = "down"
-var health = 100
+@onready var player_stats = $"/root/PlayerStats"
 var is_attacking = false
 var enemies_to_attack = []
 var player_died = false
@@ -71,9 +71,9 @@ func attack():
 
 func take_damage(amount):
 	print("player take damage")
-	health -= amount
+	player_stats.player_health -= amount
 	took_damage.emit()
-	if health <= 0:
+	if player_stats.player_health <= 0:
 		player_died = true
 		animated_sprite.stop()
 		animated_sprite.play("died")
@@ -84,7 +84,7 @@ func _on_hurtbox_area_entered(area):
 		#print("take damage")
 		#health -= 10
 		#took_damage.emit()
-		if health <= 0:
+		if player_stats.player_health <= 0:
 			player_died = true
 			animated_sprite.stop()
 			animated_sprite.play("died")

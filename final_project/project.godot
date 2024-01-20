@@ -18,6 +18,10 @@ boot_splash/image="res://assets/textures/candleA_03.png"
 config/icon="res://icon.svg"
 boot_splash/minimum_display_time=1000
 
+[autoload]
+
+PlayerStats="*res://scripts/player_stats.gd"
+
 [input]
 
 walk_up={
