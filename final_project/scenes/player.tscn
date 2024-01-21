@@ -527,7 +527,7 @@ script = ExtResource("1_2kea2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 6)
 sprite_frames = SubResource("SpriteFrames_x0xu5")
-animation = &"idle_up"
+animation = &"died"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

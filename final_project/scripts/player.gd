@@ -46,7 +46,7 @@ func _input(event):
 	if Input.is_action_pressed("walk_up"):
 		velocity.y = -player_speed
 		direction = "up"
-	if !animated_sprite.is_playing():
+		if !animated_sprite.is_playing():
 			is_attacking = false
 	if Input.is_action_pressed("walk_left"):
 		velocity.x = -player_speed
@@ -81,9 +81,8 @@ func take_damage(amount):
 
 func _on_hurtbox_area_entered(area):
 	if area.get_parent() is Skeleton:
-		#print("take damage")
-		#health -= 10
-		#took_damage.emit()
+		player_stats.player_health -= 10
+		took_damage.emit()
 		if player_stats.player_health <= 0:
 			player_died = true
 			animated_sprite.stop()

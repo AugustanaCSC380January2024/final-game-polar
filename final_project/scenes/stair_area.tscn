@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbm7uhp5dyrln"]
+
+[ext_resource type="Script" path="res://scripts/stair_area.gd" id="1_otfai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irs3u"]
+
+[node name="StairArea" type="Node2D" groups=["stairs"]]
+script = ExtResource("1_otfai")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_irs3u")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

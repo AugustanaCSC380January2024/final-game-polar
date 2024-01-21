@@ -12,8 +12,7 @@ func enter():
 
 func physics_update(delta: float):
 	var direction = player.global_position - enemy.global_position
-	#print("attack")
-	if direction.length() > 25:
+	if direction.length() > 25 && !enemy.skeleton_died:
 		transitioned.emit(self, "EnemyFollow")
 
 func update(delta: float):
@@ -21,4 +20,4 @@ func update(delta: float):
 		attack_time -= delta
 	else:
 		enemy.attack()
-		attack_time = 1.0
+		attack_time = 0.5
