@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdce36857wh3y"]
+[gd_scene load_steps=8 format=3 uid="uid://bdce36857wh3y"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_y8hkd"]
 [ext_resource type="PackedScene" uid="uid://b3rugo8jdxodo" path="res://scenes/player.tscn" id="2_lyowv"]
@@ -6,9 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://cmmuo7iyq2fvw" path="res://scenes/tile_map.tscn" id="4_aj4ah"]
 [ext_resource type="PackedScene" uid="uid://bbm7uhp5dyrln" path="res://scenes/stair_area.tscn" id="5_s3kej"]
 [ext_resource type="PackedScene" uid="uid://dhrgwpji42fs4" path="res://scenes/node_2d.tscn" id="6_utvlj"]
+[ext_resource type="PackedScene" uid="uid://devxaguskl6sd" path="res://scenes/skeleton.tscn" id="7_q2c16"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_y8hkd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -200
+offset_left = -515.0
+offset_top = -1058.0
+offset_right = 1739.0
+offset_bottom = 578.0
+color = Color(0.027451, 0.027451, 0.027451, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_lyowv")]
 position = Vector2(683, -67)
@@ -31,3 +40,6 @@ layer_2/tile_data = PackedInt32Array(-327641, 3080192, 13, -327642, 3014656, 13,
 position = Vector2(784, -310)
 scale = Vector2(1.87996, 1)
 next_level = ExtResource("6_utvlj")
+
+[node name="Skeleton" parent="." instance=ExtResource("7_q2c16")]
+position = Vector2(763, -53)

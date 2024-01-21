@@ -5,6 +5,9 @@ extends Node2D
 
 
 func _ready():
+	var player = get_tree().get_first_node_in_group("player")
+	player.died.connect(_on_player_died)
+	player.took_damage.connect(_on_player_took_damage)
 	hud.set_health_label(health)
 	var doors = get_tree().get_nodes_in_group("doors")
 	for door in doors:
@@ -20,7 +23,9 @@ func _ready():
 
 func _on_player_died():
 	await get_tree().create_timer(1.0).timeout
+	$"/root/PlayerStats".player_health = 100
 	get_tree().reload_current_scene()
+	
 
 func _on_enemy_died(enemy):
 	await get_tree().create_timer(0.8).timeout
@@ -35,5 +40,4 @@ func _on_door_entered(next_level):
 	get_tree().change_scene_to_packed(next_level)
 
 func _on_stairs_entered(next_level):
-	print("stairs entered")
 	get_tree().change_scene_to_packed(next_level)
