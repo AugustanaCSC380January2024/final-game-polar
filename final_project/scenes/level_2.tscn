@@ -25,6 +25,11 @@ position = Vector2(222, 50)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("3_d15st")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [node name="Walls" parent="." instance=ExtResource("4_6fxgi")]
 z_index = -99

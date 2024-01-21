@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bpoe7qy2jfm00" path="res://scenes/hud.tscn" id="3_aju47"]
 [ext_resource type="PackedScene" uid="uid://cmmuo7iyq2fvw" path="res://scenes/tile_map.tscn" id="4_aj4ah"]
 [ext_resource type="PackedScene" uid="uid://bbm7uhp5dyrln" path="res://scenes/stair_area.tscn" id="5_s3kej"]
-[ext_resource type="PackedScene" uid="uid://dhrgwpji42fs4" path="res://scenes/node_2d.tscn" id="6_utvlj"]
+[ext_resource type="PackedScene" uid="uid://pmv31vhtc8ud" path="res://scenes/win_screen.tscn" id="6_kd3mj"]
 [ext_resource type="PackedScene" uid="uid://devxaguskl6sd" path="res://scenes/skeleton.tscn" id="7_q2c16"]
 
 [node name="Level3" type="Node2D"]
@@ -25,6 +25,11 @@ position = Vector2(683, -67)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("3_aju47")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [node name="Walls" parent="." instance=ExtResource("4_aj4ah")]
 layer_0/z_index = -1
@@ -39,7 +44,7 @@ layer_2/tile_data = PackedInt32Array(-327641, 3080192, 13, -327642, 3014656, 13,
 [node name="StairArea" parent="." instance=ExtResource("5_s3kej")]
 position = Vector2(784, -310)
 scale = Vector2(1.87996, 1)
-next_level = ExtResource("6_utvlj")
+next_level = ExtResource("6_kd3mj")
 
 [node name="Skeleton" parent="." instance=ExtResource("7_q2c16")]
 position = Vector2(763, -53)

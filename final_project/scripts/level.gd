@@ -32,7 +32,6 @@ func _on_enemy_died(enemy):
 	remove_child(enemy)
 
 func _on_player_took_damage():
-	print("damage signal")
 	health = $Player.player_stats.player_health
 	hud.set_health_label(health)
 

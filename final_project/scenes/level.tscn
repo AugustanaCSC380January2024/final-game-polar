@@ -5066,10 +5066,10 @@ script = ExtResource("1_eoaks")
 layer = 100
 
 [node name="HUD" parent="UI" instance=ExtResource("2_osppn")]
-anchors_preset = 0
-anchor_right = 0.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.0
-grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Walls" type="TileMap" parent="."]

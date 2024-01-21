@@ -61,16 +61,16 @@ func _input(event):
 	if Input.is_action_just_pressed("attack"):
 		is_attacking = true
 		velocity = Vector2()
+		#if !animated_sprite.is_playing():
 		attack()
 	if Input.is_action_just_pressed("interact"):
 		interact.emit()
 
 func attack():
 	for body in enemies_to_attack:
-		body.get_parent().take_damage(10)
+		body.get_parent().take_damage(25)
 
 func take_damage(amount):
-	print("player take damage")
 	player_stats.player_health -= amount
 	took_damage.emit()
 	if player_stats.player_health <= 0:
@@ -81,8 +81,8 @@ func take_damage(amount):
 
 func _on_hurtbox_area_entered(area):
 	if area.get_parent() is Skeleton:
-		player_stats.player_health -= 10
-		took_damage.emit()
+		#player_stats.player_health -= 10
+		#took_damage.emit()
 		if player_stats.player_health <= 0:
 			player_died = true
 			animated_sprite.stop()

@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 PlayerStats="*res://scripts/player_stats.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 walk_up={
@@ -60,6 +64,8 @@ interact={
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="player_hitbox"
 2d_physics/layer_5="enemy_hitbox"
+2d_physics/layer_6="player_hurtbox"
+2d_physics/layer_7="enemy_hurtbox"
 
 [rendering]
 

@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://ef536hrg31xw"]
+
+[ext_resource type="FontFile" uid="uid://cfbenm167udpo" path="res://assets/PublicPixel-z84yD.ttf" id="1_1ysoo"]
+[ext_resource type="Script" path="res://scripts/credits_2.gd" id="1_560t3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ac33s"]
+font = ExtResource("1_1ysoo")
+
+[node name="Credits2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_560t3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(29.8771, 16.7235)
+color = Color(0.439216, 0.439216, 0.439216, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "SKELETON SPRITE: "
+label_settings = SubResource("LabelSettings_ac33s")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1192.0
+offset_bottom = 531.0
+text = "Authors: bluecarrot16, Johannes Sj?lund (wulax), Stephen Challener (Redshrike), Joshua Taylor, Johannes Sjölund (wulax), Matthew Krohn (makrohn)
+
+- body/bodies/skeleton/universal/skeleton.png: by bluecarrot16, Johannes Sjölund (wulax), Stephen Challener (Redshrike). 
+License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-skeleton
+    - https://opengameart.org/content/lpc-character-bases
+
+- head/heads/jack/universal/jack.png: by bluecarrot16, Joshua Taylor. License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/fruit-and-veggie-inventory
+    - https://opengameart.org/content/lpc-folk
+
+- weapon/sword/dagger/dagger.png: by bluecarrot16, Johannes Sjölund (wulax), Matthew Krohn (makrohn). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-extended-weapon-animations
+
+- weapon/sword/dagger/behind/dagger.png: by bluecarrot16, Johannes Sjölund (wulax), Matthew Krohn (makrohn). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-extended-weapon-animations
+"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 594.0
+offset_right = 159.0
+offset_bottom = 626.0
+theme_override_fonts/font = ExtResource("1_1ysoo")
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

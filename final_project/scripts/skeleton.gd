@@ -41,20 +41,22 @@ func _on_hurtbox_body_entered(body):
 	pass
 
 func take_damage(damage: int):
-	health = 0
-	died.emit()
+	health -= damage
+	print("skeleton " + str(health))
 	if health <= 0:
 		skeleton_died = true
 		animated_sprite.play("died")
 		died.emit()
 
-func _on_hitbox_body_entered(body):
-	player = body
-
-func _on_hitbox_body_exited(body):
-	if body == player:
-		player = null
-
 func attack():
 	if player != null:
 		player.take_damage(10)
+
+
+func _on_hitbox_area_entered(area):
+	player = area.get_parent()
+
+
+func _on_hitbox_area_exited(area):
+	if area.get_parent() == player:
+		player = null

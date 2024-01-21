@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb2dqswu7nss4"]
+
+[ext_resource type="FontFile" uid="uid://cfbenm167udpo" path="res://assets/PublicPixel-z84yD.ttf" id="1_fnx0j"]
+[ext_resource type="Script" path="res://scripts/credits1.gd" id="1_sw1f3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uqk0e"]
+font = ExtResource("1_fnx0j")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ibgo"]
+line_spacing = 1.0
+font_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Credits1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sw1f3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(33.4821, 19.4429)
+color = Color(0.45098, 0.45098, 0.45098, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PLAYER SPRITE: "
+label_settings = SubResource("LabelSettings_uqk0e")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 962.0
+offset_bottom = 650.0
+text = "Authors: bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, 
+Durrani, Johannes Sjölund (wulax), Stephen Challener (Redshrike), Sander Frenken (castelonia), 
+Matthew Krohn (makrohn), Skorpio, David Conway Jr. (JaidynReiman), Johannes Sjölund (wulax), Joe White
+
+- body/bodies/male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), 
+TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike). 
+License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-male-jumping-animation-by-durrani
+    - https://opengameart.org/content/lpc-runcycle-and-diagonal-walkcycle
+    - https://opengameart.org/content/lpc-revised-character-basics
+
+- body/wound/mouth.png: by Benjamin K. Smith (BenCreating), Sander Frenken (castelonia). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-zombie
+
+- head/heads/human_male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), 
+Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-character-bases
+
+- eyes/male/blue.png: by Matthew Krohn (makrohn), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+
+- hair/high_and_tight/male/light_brown.png: by Skorpio, bluecarrot16. License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-skorpios-scifi-sprite-pack
+    - https://opengameart.org/content/lpc-hair
+
+- torso/clothes/longsleeve/male/white.png: by David Conway Jr. (JaidynReiman), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - http://opengameart.org/content/lpc-clothing-updates
+
+- torso/armour/leather/male/leather.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - http://opengameart.org/content/lpc-clothing-updates
+
+
+"
+label_settings = SubResource("LabelSettings_1ibgo")
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -169.0
+offset_top = -73.0
+offset_right = -35.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_fnx0j")
+theme_override_font_sizes/font_size = 24
+text = "NEXT"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 575.0
+offset_right = 914.0
+offset_bottom = 611.0
+theme_override_fonts/font = ExtResource("1_fnx0j")
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 40.0
+offset_right = 1524.0
+offset_bottom = 398.0
+theme_override_font_sizes/font_size = 11
+text = "- legs/pants/male/charcoal.png: by bluecarrot16, David Conway Jr. (JaidynReiman), Joe White, 
+Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+- feet/shoes/male/black.png: by bluecarrot16, Johannes Sjölund (wulax). 
+License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - http://opengameart.org/content/lpc-clothing-updates
+
+- weapon/sword/dagger/dagger.png: by bluecarrot16, Johannes Sjölund (wulax), 
+Matthew Krohn (makrohn). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-extended-weapon-animations
+
+- weapon/sword/dagger/behind/dagger.png: by bluecarrot16, Johannes Sjölund (wulax), 
+Matthew Krohn (makrohn). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-extended-weapon-animations"
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
