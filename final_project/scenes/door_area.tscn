@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c71m40n8q2kej"]
+[gd_scene load_steps=4 format=3 uid="uid://c71m40n8q2kej"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_fb8fg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15t82"]
 size = Vector2(16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_myohl"]
 
 [node name="DoorArea" type="Node2D" groups=["doors"]]
 position = Vector2(0, -8)
@@ -13,7 +15,30 @@ script = ExtResource("1_fb8fg")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2.08, 1)
 shape = SubResource("RectangleShape2D_15t82")
+
+[node name="Enter" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -61.0
+offset_right = 44.0
+offset_bottom = -38.0
+text = "E To Enter"
+label_settings = SubResource("LabelSettings_myohl")
+
+[node name="Locked" type="Label" parent="."]
+offset_left = -74.0
+offset_top = -61.0
+offset_right = 83.0
+offset_bottom = -38.0
+text = "This door is locked..."
+
+[node name="Unlock" type="Label" parent="."]
+offset_left = -48.0
+offset_top = -61.0
+offset_right = 50.0
+offset_bottom = -38.0
+text = "E To Use Key"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

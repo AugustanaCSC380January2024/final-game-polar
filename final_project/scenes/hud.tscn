@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpoe7qy2jfm00"]
+[gd_scene load_steps=6 format=3 uid="uid://bpoe7qy2jfm00"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_w7pqw"]
 [ext_resource type="FontFile" uid="uid://cfbenm167udpo" path="res://assets/PublicPixel-z84yD.ttf" id="2_a4f23"]
+[ext_resource type="Texture2D" uid="uid://bh25pnvpahnly" path="res://assets/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/key_01d.png" id="3_hp2go"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i68rq"]
 font = ExtResource("2_a4f23")
@@ -9,13 +10,18 @@ font_size = 32
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_rj3qr"]
+font = ExtResource("2_a4f23")
+font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [node name="HUD" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_w7pqw")
 
 [node name="Health" type="Label" parent="."]
@@ -29,3 +35,17 @@ offset_bottom = 45.0
 grow_horizontal = 2
 text = "Health: 000"
 label_settings = SubResource("LabelSettings_i68rq")
+
+[node name="Key01d" type="Sprite2D" parent="."]
+position = Vector2(-520, 45)
+scale = Vector2(4.0625, 4.0625)
+texture = ExtResource("3_hp2go")
+
+[node name="Keys" type="Label" parent="."]
+layout_mode = 1
+offset_left = -474.0
+offset_top = 31.0
+offset_right = -378.0
+offset_bottom = 63.0
+text = "X 0"
+label_settings = SubResource("LabelSettings_rj3qr")

@@ -11,10 +11,12 @@ var is_attacking = false
 var can_attack = true
 var enemies_to_attack = []
 var player_died = false
+var keys_collected = 0
 
 signal died
 signal took_damage
-signal interact
+signal interaction
+signal key_collected
 
 func _physics_process(delta):
 	if !player_died:
@@ -66,7 +68,7 @@ func _input(event):
 			#if !animated_sprite.is_playing():
 			attack()
 	if Input.is_action_just_pressed("interact"):
-		interact.emit()
+		interaction.emit()
 
 func attack():
 	print("print")
@@ -84,16 +86,12 @@ func take_damage(amount):
 		animated_sprite.stop()
 		animated_sprite.play("died")
 		died.emit()
+		
+func interact():
+	pass
 
 func _on_hurtbox_area_entered(area):
-	if area.get_parent() is Skeleton:
-		#player_stats.player_health -= 10
-		#took_damage.emit()
-		if player_stats.player_health <= 0:
-			player_died = true
-			animated_sprite.stop()
-			animated_sprite.play("died")
-			died.emit()
+	pass
 
 func _on_hurtbox_area_exited(area):
 	pass
@@ -106,3 +104,5 @@ func _on_hitbox_area_entered(area):
 func _on_hitbox_area_exited(area):
 	if enemies_to_attack.has(area):
 		enemies_to_attack.erase(area)
+
+#Area2D
