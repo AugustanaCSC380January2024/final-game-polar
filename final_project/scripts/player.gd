@@ -8,6 +8,7 @@ class_name Player
 var direction = "down"
 @onready var player_stats = $"/root/PlayerStats"
 var is_attacking = false
+var can_attack = true
 var enemies_to_attack = []
 var player_died = false
 
@@ -59,16 +60,21 @@ func _input(event):
 		if !animated_sprite.is_playing():
 			is_attacking = false
 	if Input.is_action_just_pressed("attack"):
-		is_attacking = true
-		velocity = Vector2()
-		#if !animated_sprite.is_playing():
-		attack()
+		if can_attack:
+			is_attacking = true
+			velocity = Vector2()
+			#if !animated_sprite.is_playing():
+			attack()
 	if Input.is_action_just_pressed("interact"):
 		interact.emit()
 
 func attack():
+	print("print")
+	can_attack = false
 	for body in enemies_to_attack:
-		body.get_parent().take_damage(25)
+		body.get_parent().take_damage(50)
+	await animated_sprite.animation_finished
+	can_attack = true
 
 func take_damage(amount):
 	player_stats.player_health -= amount

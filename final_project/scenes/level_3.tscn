@@ -20,7 +20,7 @@ offset_bottom = 578.0
 color = Color(0.027451, 0.027451, 0.027451, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_lyowv")]
-position = Vector2(683, -67)
+position = Vector2(314, -38)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -48,3 +48,18 @@ next_level = ExtResource("6_kd3mj")
 
 [node name="Skeleton" parent="." instance=ExtResource("7_q2c16")]
 position = Vector2(763, -53)
+
+[node name="Skeleton2" parent="." instance=ExtResource("7_q2c16")]
+position = Vector2(586, -21)
+
+[node name="Skeleton3" parent="." instance=ExtResource("7_q2c16")]
+position = Vector2(433, -45)
+
+[node name="Skeleton4" parent="." instance=ExtResource("7_q2c16")]
+position = Vector2(597, -220)
+
+[node name="Skeleton5" parent="." instance=ExtResource("7_q2c16")]
+position = Vector2(783, -233)
+
+[node name="Skeleton6" parent="." instance=ExtResource("7_q2c16")]
+position = Vector2(677, -153)

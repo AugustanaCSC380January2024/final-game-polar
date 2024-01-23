@@ -1251,18 +1251,22 @@ texture = ExtResource("2_a6tak")
 19:10/0 = 0
 19:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:10/0/physics_layer_0/angular_velocity = 0.0
+19:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 23:10/0 = 0
 23:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 23:10/0/physics_layer_0/angular_velocity = 0.0
+23:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 25:10/0 = 0
 25:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 25:10/0/physics_layer_0/angular_velocity = 0.0
+25:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 27:10/0 = 0
 27:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 27:10/0/physics_layer_0/angular_velocity = 0.0
 29:10/0 = 0
 29:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 29:10/0/physics_layer_0/angular_velocity = 0.0
+29:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 37:10/0 = 0
 37:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 37:10/0/physics_layer_0/angular_velocity = 0.0
@@ -1352,18 +1356,22 @@ texture = ExtResource("2_a6tak")
 19:11/0 = 0
 19:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:11/0/physics_layer_0/angular_velocity = 0.0
+19:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 23:11/0 = 0
 23:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 23:11/0/physics_layer_0/angular_velocity = 0.0
+23:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 25:11/0 = 0
 25:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 25:11/0/physics_layer_0/angular_velocity = 0.0
+25:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 27:11/0 = 0
 27:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 27:11/0/physics_layer_0/angular_velocity = 0.0
 29:11/0 = 0
 29:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 29:11/0/physics_layer_0/angular_velocity = 0.0
+29:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 37:11/0 = 0
 37:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 37:11/0/physics_layer_0/angular_velocity = 0.0
@@ -5095,16 +5103,15 @@ position = Vector2(136, -236)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -111
-offset_left = -545.0
-offset_top = -402.0
-offset_right = -493.0
-offset_bottom = -355.0
-scale = Vector2(25.0524, 18.6928)
+offset_left = -575.0
+offset_top = -722.0
+offset_right = -523.0
+offset_bottom = -675.0
+scale = Vector2(24.7374, 30.6962)
 color = Color(0.027451, 0.027451, 0.027451, 1)
 
 [node name="Skeleton2" parent="." instance=ExtResource("4_q6vn0")]
 position = Vector2(163, 63)
-scale = Vector2(0.8, 0.8)
 
 [node name="DoorAreas" type="Node2D" parent="."]
 
@@ -5112,6 +5119,11 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(86, -280)
 scale = Vector2(2.07998, 1)
 next_level = ExtResource("9_7gfbn")
+
+[node name="Skeleton3" parent="." instance=ExtResource("4_q6vn0")]
+
+[node name="Skeleton4" parent="." instance=ExtResource("4_q6vn0")]
+position = Vector2(11, -243)
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="interact" from="Player" to="." method="_on_player_interact"]

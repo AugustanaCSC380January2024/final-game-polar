@@ -521,9 +521,9 @@ script = ExtResource("1_axydl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_l26s4")
-animation = &"died"
+animation = &"attack_right"
 autoplay = "idle_down"
-frame = 5
+frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -549,6 +549,7 @@ script = ExtResource("6_l7kbb")
 enemy = NodePath("../..")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 64
 collision_mask = 8
 

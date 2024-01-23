@@ -23,6 +23,7 @@ scale = Vector2(29.8771, 16.7235)
 color = Color(0.439216, 0.439216, 0.439216, 1)
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "SKELETON SPRITE: "
