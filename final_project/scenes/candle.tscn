@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://yfas1n15dw4n"]
+
+[ext_resource type="Texture2D" uid="uid://cigvibnty3x6a" path="res://assets/textures/candleB_02.png" id="1_gkan2"]
+[ext_resource type="Texture2D" uid="uid://c7hxpdxox4kb7" path="res://assets/textures/candleB_03.png" id="2_302no"]
+[ext_resource type="Texture2D" uid="uid://c47xmwct1x7x6" path="res://assets/textures/2d_lights_and_shadows_neutral_point_light.webp" id="3_wwtrm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_giaxd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gkan2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_302no")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Candle" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_giaxd")
+autoplay = "default"
+frame = 1
+frame_progress = 0.148211
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_wwtrm")

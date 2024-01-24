@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://45ejgiwn0nmp"]
+[gd_scene load_steps=9 format=3 uid="uid://45ejgiwn0nmp"]
 
 [ext_resource type="PackedScene" uid="uid://b3rugo8jdxodo" path="res://scenes/player.tscn" id="1_otboh"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_tkoj2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://devxaguskl6sd" path="res://scenes/skeleton.tscn" id="5_mjgx8"]
 [ext_resource type="PackedScene" uid="uid://bbm7uhp5dyrln" path="res://scenes/stair_area.tscn" id="6_2vfl3"]
 [ext_resource type="PackedScene" uid="uid://bdce36857wh3y" path="res://scenes/level_3.tscn" id="7_h25f6"]
+[ext_resource type="PackedScene" uid="uid://yfas1n15dw4n" path="res://scenes/candle.tscn" id="8_t2sny"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_tkoj2")
@@ -56,3 +57,6 @@ position = Vector2(166, 18)
 position = Vector2(545, 272)
 scale = Vector2(1, 1.79999)
 next_level = ExtResource("7_h25f6")
+
+[node name="Candle" parent="." instance=ExtResource("8_t2sny")]
+position = Vector2(291, 0)

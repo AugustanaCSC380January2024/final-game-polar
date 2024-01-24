@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfewfbl8x4p5t"]
+
+[ext_resource type="Texture2D" uid="uid://fy1x4ljbvflk" path="res://assets/textures/torch_2.png" id="1_rb1co"]
+[ext_resource type="Texture2D" uid="uid://dda2yn3je1ih8" path="res://assets/textures/torch_3.png" id="2_syfh1"]
+[ext_resource type="Texture2D" uid="uid://c47xmwct1x7x6" path="res://assets/textures/2d_lights_and_shadows_neutral_point_light.webp" id="3_bvth4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ppyow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rb1co")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_syfh1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_bsqaw"]
+offsets = PackedFloat32Array(0.255814, 1)
+colors = PackedColorArray(0.0885599, 0.0885599, 0.0885599, 1, 0.548963, 0.548963, 0.548963, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nm2qg"]
+gradient = SubResource("Gradient_bsqaw")
+
+[sub_resource type="Curve" id="Curve_3044c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.527472), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gultk"]
+curve = SubResource("Curve_3044c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_unn15"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -337.0
+angle_max = 477.3
+direction = Vector3(10, 0, 0)
+spread = 36.11
+initial_velocity_max = 1.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_gultk")
+color_ramp = SubResource("GradientTexture1D_nm2qg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ppyow")
+autoplay = "default"
+frame_progress = 0.941151
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_bvth4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -7)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_unn15")
+lifetime = 2.0
+randomness = 0.88

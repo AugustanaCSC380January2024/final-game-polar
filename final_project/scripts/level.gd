@@ -35,6 +35,7 @@ func _on_player_died():
 	
 
 func _on_enemy_died(enemy):
+	AudioPlayer.play_sfx("skeleton_die")
 	await get_tree().create_timer(0.8).timeout
 	remove_child(enemy)
 
@@ -43,6 +44,7 @@ func _on_player_took_damage():
 	hud.set_health_label(health)
 
 func _on_door_entered(next_level):
+	AudioPlayer.play_sfx("door")
 	get_tree().change_scene_to_packed(next_level)
 
 func _on_stairs_entered(next_level):
@@ -55,5 +57,6 @@ func _on_key_picked_up(key):
 	remove_child(key)
 
 func _on_key_used():
+	AudioPlayer.play_sfx("unlock")
 	player.player_stats.keys_collected -= 1
 	hud.set_keys_label(player.player_stats.keys_collected)
