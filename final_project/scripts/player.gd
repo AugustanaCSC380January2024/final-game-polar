@@ -71,7 +71,7 @@ func _input(event):
 		interaction.emit()
 
 func attack():
-	print("print")
+	AudioPlayer.play_sfx("player_attack")
 	can_attack = false
 	for body in enemies_to_attack:
 		body.get_parent().take_damage(50)

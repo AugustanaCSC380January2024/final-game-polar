@@ -49,6 +49,7 @@ func _on_stairs_entered(next_level):
 	get_tree().change_scene_to_packed(next_level)
 
 func _on_key_picked_up(key):
+	AudioPlayer.play_sfx("key")
 	player.player_stats.keys_collected += 1
 	hud.set_keys_label(player.player_stats.keys_collected)
 	remove_child(key)
