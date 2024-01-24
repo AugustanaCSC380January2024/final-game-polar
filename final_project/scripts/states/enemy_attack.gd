@@ -16,8 +16,7 @@ func physics_update(delta: float):
 		transitioned.emit(self, "EnemyFollow")
 
 func update(delta: float):
-	if attack_time > 0:
-		attack_time -= delta
-	else:
+	if enemy.can_attack:
 		enemy.attack()
-		attack_time = 0.5
+		print("attack")
+

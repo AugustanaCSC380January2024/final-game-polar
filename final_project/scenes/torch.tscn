@@ -45,7 +45,7 @@ gravity = Vector3(0, -10, 0)
 scale_curve = SubResource("CurveTexture_gultk")
 color_ramp = SubResource("GradientTexture1D_nm2qg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="Torch" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ppyow")
 autoplay = "default"
 frame_progress = 0.941151

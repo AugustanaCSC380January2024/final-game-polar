@@ -8,6 +8,7 @@ var player = null
 var direction = "up"
 var is_attacking = false
 var skeleton_died = false
+var can_attack = true
 @export var health = 100
 
 signal died
@@ -49,8 +50,11 @@ func take_damage(damage: int):
 		died.emit()
 
 func attack():
+	can_attack = false
 	if player != null:
 		player.take_damage(10)
+		await animated_sprite.animation_finished
+		can_attack = true
 
 
 func _on_hitbox_area_entered(area):

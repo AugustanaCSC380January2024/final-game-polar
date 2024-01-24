@@ -79,13 +79,14 @@ func attack():
 	can_attack = true
 
 func take_damage(amount):
-	player_stats.player_health -= amount
-	took_damage.emit()
-	if player_stats.player_health <= 0:
-		player_died = true
-		animated_sprite.stop()
-		animated_sprite.play("died")
-		died.emit()
+	if player_stats.player_health > 0:
+		player_stats.player_health -= amount
+		took_damage.emit()
+		if player_stats.player_health <= 0:
+			player_died = true
+			animated_sprite.stop()
+			animated_sprite.play("died")
+			died.emit()
 		
 func interact():
 	pass
