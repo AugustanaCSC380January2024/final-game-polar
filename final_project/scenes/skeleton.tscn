@@ -503,8 +503,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lq8gc"]
-radius = 8.03246
-height = 35.9162
+radius = 7.56129
+height = 15.1226
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2qw86"]
 height = 38.0
@@ -521,13 +521,11 @@ script = ExtResource("1_axydl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_l26s4")
-animation = &"attack_right"
+animation = &"idle_down"
 autoplay = "idle_down"
-frame = 4
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(0, 15)
 scale = Vector2(1.36944, 1.05802)
 shape = SubResource("CapsuleShape2D_lq8gc")
 

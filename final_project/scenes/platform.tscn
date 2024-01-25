@@ -34,6 +34,7 @@ animations = [{
 
 [node name="Platform" type="Area2D" groups=["platforms"]]
 z_index = -1
+collision_mask = 256
 script = ExtResource("1_5jqc6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

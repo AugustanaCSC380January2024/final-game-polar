@@ -4,7 +4,7 @@ class_name Player
 
 @onready var hurtbox = $Hurtbox
 @onready var animated_sprite = $AnimatedSprite2D
-@export var player_speed = 100
+@export var player_speed = 125
 @export var push_speed = 75
 var direction = "down"
 @onready var player_stats = $"/root/PlayerStats"
