@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bk336ucxl1g14"]
+[gd_scene load_steps=27 format=3 uid="uid://bk336ucxl1g14"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_eoaks"]
 [ext_resource type="PackedScene" uid="uid://b3rugo8jdxodo" path="res://scenes/player.tscn" id="1_oqjrj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://fnaxuk717a7b" path="res://scenes/key.tscn" id="10_vfij2"]
 [ext_resource type="PackedScene" uid="uid://dfewfbl8x4p5t" path="res://scenes/torch.tscn" id="11_vx4ob"]
 [ext_resource type="PackedScene" uid="uid://cnjkbup26oief" path="res://scenes/push_object.tscn" id="12_245j1"]
+[ext_resource type="PackedScene" uid="uid://cswd0mrxqd6lk" path="res://scenes/platform.tscn" id="13_qsajx"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_40rl2"]
 tile_data = PackedInt32Array(0, 262144, 7, 65536, 262144, 8, 131072, 262144, 9, 196608, 262144, 10, 262144, 262144, 11, 1, 327680, 7, 65537, 327680, 8, 131073, 327680, 9, 196609, 327680, 10, 262145, 327680, 11, 2, 393216, 7, 65538, 393216, 8, 131074, 393216, 9, 196610, 393216, 10, 262146, 393216, 11, 3, 458752, 7, 65539, 458752, 8, 131075, 458752, 9, 196611, 458752, 10, 262147, 458752, 11, 4, 524288, 7, 65540, 524288, 8, 131076, 524288, 9, 196612, 524288, 10, 262148, 524288, 11, 5, 589824, 7, 65541, 589824, 8, 131077, 589824, 9, 196613, 589824, 10, 262149, 589824, 11)
@@ -5134,6 +5135,9 @@ position = Vector2(38, -38)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("12_245j1")]
 position = Vector2(30, 125)
+
+[node name="Platform" parent="." instance=ExtResource("13_qsajx")]
+position = Vector2(184, 134)
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="took_damage" from="Player" to="." method="_on_player_took_damage"]
