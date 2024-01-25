@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var animated_sprite = $AnimatedSprite2D
+@export var puzzle_door: PuzzleDoor
 
 signal pressed
 signal unpressed

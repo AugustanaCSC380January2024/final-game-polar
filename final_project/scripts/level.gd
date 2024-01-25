@@ -27,6 +27,10 @@ func _ready():
 	var keys = get_tree().get_nodes_in_group("keys")
 	for key in keys:
 		key.key_picked_up.connect(_on_key_picked_up.bind(key))
+		
+	var platforms = get_tree().get_nodes_in_group("platforms")
+	for platform in platforms:
+		platform.pressed.connect(_on_platform_pressed.bind(platform.puzzle_door))
 
 func _on_player_died():
 	await get_tree().create_timer(1.0).timeout
@@ -60,3 +64,8 @@ func _on_key_used():
 	AudioPlayer.play_sfx("unlock")
 	player.player_stats.keys_collected -= 1
 	hud.set_keys_label(player.player_stats.keys_collected)
+
+
+func _on_platform_pressed(puzzle_door):
+	if get_children().has(puzzle_door):
+		remove_child(puzzle_door)
