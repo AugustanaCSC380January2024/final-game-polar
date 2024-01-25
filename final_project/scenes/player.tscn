@@ -507,9 +507,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmp5"]
-radius = 7.5
-height = 27.5
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt0g5"]
+size = Vector2(27.5, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgqb2"]
 radius = 15.0
@@ -531,14 +530,14 @@ script = ExtResource("1_2kea2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 6)
 sprite_frames = SubResource("SpriteFrames_x0xu5")
-animation = &"died"
+animation = &"idle_right"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(2.5, 28.75)
+position = Vector2(2.50001, 22.5)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_ffmp5")
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_lt0g5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
@@ -570,6 +569,7 @@ position = Vector2(3.75, 12.5)
 shape = SubResource("CapsuleShape2D_j7ck6")
 
 [node name="InteractArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]

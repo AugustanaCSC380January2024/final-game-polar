@@ -68,6 +68,7 @@ interact={
 2d_physics/layer_6="player_hurtbox"
 2d_physics/layer_7="enemy_hurtbox"
 2d_physics/layer_8="player_interact"
+2d_physics/layer_9="objects"
 
 [rendering]
 

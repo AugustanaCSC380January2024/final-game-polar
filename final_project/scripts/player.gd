@@ -5,6 +5,7 @@ class_name Player
 @onready var hurtbox = $Hurtbox
 @onready var animated_sprite = $AnimatedSprite2D
 @export var player_speed = 100
+@export var push_speed = 75
 var direction = "down"
 @onready var player_stats = $"/root/PlayerStats"
 var is_attacking = false
@@ -24,6 +25,8 @@ func _physics_process(delta):
 			velocity = Vector2()
 		move_and_slide()
 		update_animations(direction)
+		if get_slide_collision_count() > 0:
+			check_box_collision()
 
 func update_animations(direction):
 	if animated_sprite :
@@ -87,7 +90,14 @@ func take_damage(amount):
 			animated_sprite.stop()
 			animated_sprite.play("died")
 			died.emit()
-		
+
+func check_box_collision():
+	if velocity.x != 0 && velocity.y != 0:
+		return
+	var box = get_slide_collision(0).get_collider() as PushObject
+	if box:
+		box.push(velocity)
+
 func interact():
 	pass
 
@@ -105,5 +115,3 @@ func _on_hitbox_area_entered(area):
 func _on_hitbox_area_exited(area):
 	if enemies_to_attack.has(area):
 		enemies_to_attack.erase(area)
-
-#Area2D

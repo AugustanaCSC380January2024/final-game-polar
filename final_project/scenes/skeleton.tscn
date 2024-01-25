@@ -527,7 +527,6 @@ frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 6)
 scale = Vector2(1.36944, 1.05802)
 shape = SubResource("CapsuleShape2D_lq8gc")
@@ -558,6 +557,7 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_2qw86")
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 16
 collision_mask = 32
 
