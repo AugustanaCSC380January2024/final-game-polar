@@ -96,7 +96,7 @@ theme_override_fonts/font = ExtResource("1_fnx0j")
 theme_override_font_sizes/font_size = 24
 text = "NEXT"
 
-[node name="Back" type="Button" parent="."]
+[node name="MainMenu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 774.0
 offset_top = 575.0
@@ -104,7 +104,8 @@ offset_right = 914.0
 offset_bottom = 611.0
 theme_override_fonts/font = ExtResource("1_fnx0j")
 theme_override_font_sizes/font_size = 24
-text = "BACK"
+text = "MAIN 
+MENU"
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
@@ -134,4 +135,4 @@ Matthew Krohn (makrohn). License(s): CC-BY-SA 3.0, GPL 3.0.
     - https://opengameart.org/content/lpc-extended-weapon-animations"
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

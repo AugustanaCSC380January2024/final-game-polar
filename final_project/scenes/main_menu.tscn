@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdt5rvl44x8nk"]
+
+[ext_resource type="FontFile" uid="uid://cfbenm167udpo" path="res://assets/PublicPixel-z84yD.ttf" id="1_4ben0"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_t0ea4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_imivx"]
+font = ExtResource("1_4ben0")
+font_size = 84
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j4ahu"]
+font = ExtResource("1_4ben0")
+font_size = 84
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t0ea4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(30.114, 17.4592)
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="Dungeon" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -397.0
+offset_top = 53.0
+offset_right = 191.0
+offset_bottom = 137.0
+grow_horizontal = 2
+text = "Dungeon"
+label_settings = SubResource("LabelSettings_imivx")
+
+[node name="Dweller" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -174.0
+offset_right = 384.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dweller
+"
+label_settings = SubResource("LabelSettings_j4ahu")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -36.0
+offset_right = 171.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4ben0")
+theme_override_font_sizes/font_size = 64
+text = "PLAY"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = 117.0
+offset_right = 139.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4ben0")
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -93.0
+offset_right = 99.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_4ben0")
+theme_override_font_sizes/font_size = 32
+text = "EXIT"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
