@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkvrjrcoj1pyh"]
+
+[ext_resource type="Texture2D" uid="uid://brci5ghfflbtf" path="res://assets/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/potion_02f.png" id="1_d1urc"]
+[ext_resource type="Script" path="res://scripts/health_potion.gd" id="2_0j7bl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn4xf"]
+size = Vector2(10, 16)
+
+[node name="HealthPotion" type="Sprite2D" groups=["health_potions"]]
+texture = ExtResource("1_d1urc")
+script = ExtResource("2_0j7bl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yn4xf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -18,5 +18,4 @@ func physics_update(delta: float):
 func update(delta: float):
 	if enemy.can_attack:
 		enemy.attack()
-		print("attack")
 

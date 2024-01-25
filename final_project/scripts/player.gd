@@ -68,7 +68,6 @@ func _input(event):
 		if can_attack:
 			is_attacking = true
 			velocity = Vector2()
-			#if !animated_sprite.is_playing():
 			attack()
 	if Input.is_action_just_pressed("interact"):
 		interaction.emit()

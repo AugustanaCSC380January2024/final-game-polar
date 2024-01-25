@@ -22,6 +22,7 @@ animations = [{
 size = Vector2(64, 74)
 
 [node name="PuzzleDoor" type="Node2D"]
+z_index = -20
 script = ExtResource("1_15xuj")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

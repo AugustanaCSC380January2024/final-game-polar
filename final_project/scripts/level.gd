@@ -31,7 +31,10 @@ func _ready():
 	var platforms = get_tree().get_nodes_in_group("platforms")
 	for platform in platforms:
 		platform.pressed.connect(_on_platform_pressed.bind(platform.puzzle_door))
-
+	
+	var health_potions = get_tree().get_nodes_in_group("health_potions")
+	for health_potion in health_potions:
+		health_potion.health_potion_used.connect(_on_health_potion_used.bind(health_potion))
 func _on_player_died():
 	await get_tree().create_timer(1.0).timeout
 	$"/root/PlayerStats".player_health = 100
@@ -69,3 +72,8 @@ func _on_key_used():
 func _on_platform_pressed(puzzle_door):
 	if get_children().has(puzzle_door):
 		remove_child(puzzle_door)
+
+func _on_health_potion_used(health_potion):
+	PlayerStats.player_health = 100
+	hud.set_health_label(PlayerStats.player_health)
+	remove_child(health_potion)

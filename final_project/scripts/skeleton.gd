@@ -43,7 +43,6 @@ func _on_hurtbox_body_entered(body):
 
 func take_damage(damage: int):
 	health -= damage
-	print("skeleton " + str(health))
 	if health <= 0:
 		skeleton_died = true
 		animated_sprite.play("died")
