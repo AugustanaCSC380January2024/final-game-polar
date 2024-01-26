@@ -58,9 +58,9 @@ License(s): CC-BY-SA 3.0, GPL 3.0.
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 769.0
 offset_top = 594.0
-offset_right = 159.0
+offset_right = 873.0
 offset_bottom = 626.0
 theme_override_fonts/font = ExtResource("1_1ysoo")
 theme_override_font_sizes/font_size = 24

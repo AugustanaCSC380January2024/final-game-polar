@@ -72,6 +72,7 @@ func _on_key_used():
 func _on_platform_pressed(puzzle_door):
 	if get_children().has(puzzle_door):
 		remove_child(puzzle_door)
+		AudioPlayer.play_sfx("puzzle_door")
 
 func _on_health_potion_used(health_potion):
 	PlayerStats.player_health = 100

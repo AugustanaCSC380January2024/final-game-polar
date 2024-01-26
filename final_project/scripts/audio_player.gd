@@ -5,6 +5,7 @@ var unlock = preload("res://assets/audio/Coin 1.wav")
 var skeleton_die = preload("res://assets/audio/skeleton_die.wav")
 var key = preload("res://assets/audio/unlock.wav")
 var door = preload("res://assets/audio/06_door_close_2.mp3")
+var puzzle_door = preload("res://assets/audio/puzzle_door.wav")
 
 func play_sfx(sfx_name: String):
 	var stream = null
@@ -18,6 +19,8 @@ func play_sfx(sfx_name: String):
 		stream = unlock
 	elif sfx_name == "door":
 		stream = door
+	elif sfx_name == "puzzle_door":
+		stream = puzzle_door
 	else:
 		return
 	var player = AudioStreamPlayer.new()
