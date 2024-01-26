@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://45ejgiwn0nmp"]
+[gd_scene load_steps=15 format=3 uid="uid://45ejgiwn0nmp"]
 
 [ext_resource type="PackedScene" uid="uid://b3rugo8jdxodo" path="res://scenes/player.tscn" id="1_otboh"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_tkoj2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cnjkbup26oief" path="res://scenes/push_object.tscn" id="11_vnfm5"]
 [ext_resource type="PackedScene" uid="uid://cswd0mrxqd6lk" path="res://scenes/platform.tscn" id="12_yqw7v"]
 [ext_resource type="PackedScene" uid="uid://b8ljekhuujiw3" path="res://scenes/puzzle_railing.tscn" id="13_yg0nh"]
+[ext_resource type="PackedScene" uid="uid://dfewfbl8x4p5t" path="res://scenes/torch.tscn" id="14_trhef"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_tkoj2")
@@ -44,7 +45,7 @@ layer_0/tile_data = PackedInt32Array(-65527, 3014656, 20, 9, 3014656, 21, -65526
 position = Vector2(343, 27)
 
 [node name="Skeleton" parent="." instance=ExtResource("5_mjgx8")]
-position = Vector2(369, 12)
+position = Vector2(419, 225)
 
 [node name="Skeleton4" parent="." instance=ExtResource("5_mjgx8")]
 position = Vector2(275, 33)
@@ -82,3 +83,9 @@ puzzle_door = NodePath("../PuzzleDoor")
 [node name="PuzzleRailing" parent="." instance=ExtResource("13_yg0nh")]
 layer_0/tile_data = PackedInt32Array(1114128, 196608, 805306376, 1179664, 196608, 805306375, 1245200, 196608, 805306374, 917522, 196608, 1610612746, 983058, 196608, 7, 1048594, 196608, 8, 1048597, 1179648, 805306377, 1114133, 1179648, 805306376, 1179669, 1179648, 805306375, 1245205, 1179648, 805306374, 917528, 1048576, 8, 983064, 1048576, 9, 1048600, 1048576, 10, 1114138, 196608, 4, 1179674, 196608, 6, 1245210, 196608, 7, 917514, 1048576, 805306376, 1114122, 65536, 11, 917515, 196608, 1610612743, 1114123, 393216, 11, 917516, 196608, 1610612744, 1114124, 458752, 11, 917517, 196608, 1610612742, 1114125, 524288, 11, 917518, 196608, 1610612743, 1114126, 458752, 11, 917519, 196608, 1610612744, 1114127, 524288, 11, 917520, 196608, 1610612745, 1310736, 327680, 11, 917521, 196608, 1610612746, 1310737, 393216, 11, 1114130, 196608, 9, 1310738, 458752, 11, 917523, 196608, 1610612742, 1310739, 327680, 11, 917524, 196608, 1610612743, 1310740, 393216, 11, 917525, 196608, 1610612744, 1310741, 458752, 11, 917526, 196608, 1610612745, 1310742, 327680, 11, 917527, 196608, 1610612746, 1310743, 327680, 11, 1114136, 393216, 11, 1310744, 393216, 11, 1114137, 458752, 11, 1310745, 458752, 11, 1310746, 524288, 11, 983050, 1048576, 805306375, 1048586, 1048576, 805306374)
 layer_1/tile_data = PackedInt32Array(917522, 196608, 7)
+
+[node name="Torch" parent="." instance=ExtResource("14_trhef")]
+position = Vector2(317, 168)
+
+[node name="Torch2" parent="." instance=ExtResource("14_trhef")]
+position = Vector2(488, 168)

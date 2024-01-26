@@ -1,11 +1,18 @@
-[gd_scene load_steps=72 format=3 uid="uid://devxaguskl6sd"]
+[gd_scene load_steps=78 format=3 uid="uid://devxaguskl6sd"]
 
 [ext_resource type="Texture2D" uid="uid://bttdn5b3rmkph" path="res://assets/characters/skeleton.png" id="1_0wj4l"]
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_axydl"]
+[ext_resource type="Shader" path="res://scripts/skeleton.gdshader" id="1_j51sw"]
 [ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_b07ld"]
 [ext_resource type="Script" path="res://scripts/states/enemy_wander.gd" id="4_12sxw"]
 [ext_resource type="Script" path="res://scripts/states/enemy_follow.gd" id="5_5fj6a"]
 [ext_resource type="Script" path="res://scripts/states/enemy_attack.gd" id="6_l7kbb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgdl5"]
+resource_local_to_scene = true
+shader = ExtResource("1_j51sw")
+shader_parameter/flash_color = Color(0.929412, 0.231373, 0.113725, 1)
+shader_parameter/flash_modifier = 0.465
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fcb5"]
 atlas = ExtResource("1_0wj4l")
@@ -502,6 +509,60 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_13i7x"]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.785, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ie1ag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.465]
+}
+
+[sub_resource type="Animation" id="Animation_vkehf"]
+resource_name = "ready"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65vg3"]
+_data = {
+"RESET": SubResource("Animation_ie1ag"),
+"damage": SubResource("Animation_13i7x"),
+"ready": SubResource("Animation_vkehf")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lq8gc"]
 radius = 7.56129
 height = 15.1226
@@ -515,15 +576,22 @@ radius = 17.0
 height = 44.0
 
 [node name="Skeleton" type="CharacterBody2D" groups=["enemies"]]
+z_index = -1
 collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_axydl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_xgdl5")
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_l26s4")
-animation = &"idle_down"
+animation = &"attack_up"
 autoplay = "idle_down"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_65vg3")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 15)

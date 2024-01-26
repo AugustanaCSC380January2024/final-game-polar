@@ -13,6 +13,9 @@ var can_attack = true
 
 signal died
 
+func _ready():
+	$AnimatedSprite2D/AnimationPlayer.play("ready")
+
 func _physics_process(delta):
 	if is_attacking:
 		velocity = Vector2()
@@ -43,6 +46,7 @@ func _on_hurtbox_body_entered(body):
 
 func take_damage(damage: int):
 	health -= damage
+	$AnimatedSprite2D/AnimationPlayer.play("damage")
 	if health <= 0:
 		skeleton_died = true
 		animated_sprite.play("died")

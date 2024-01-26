@@ -24,6 +24,10 @@ AudioPlayer="*res://scenes/audio_player.tscn"
 
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="C:/CSC/DungeonDweller.avi"
+
 [input]
 
 walk_up={

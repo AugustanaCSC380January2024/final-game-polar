@@ -5121,7 +5121,6 @@ layer_0/tile_data = PackedInt32Array(-9, 3014656, 13, 65527, 3014656, 14, 131063
 position = Vector2(-7.62939e-06, 7.62939e-06)
 
 [node name="Skeleton" parent="." instance=ExtResource("4_q6vn0")]
-z_index = -1
 position = Vector2(136, -236)
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -5161,6 +5160,7 @@ position = Vector2(38, -38)
 position = Vector2(-90, 156)
 
 [node name="Platform" parent="." node_paths=PackedStringArray("puzzle_door") instance=ExtResource("13_qsajx")]
+z_index = -30
 position = Vector2(0, 238)
 puzzle_door = NodePath("../PuzzleDoor")
 
