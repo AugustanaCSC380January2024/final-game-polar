@@ -33,7 +33,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rbhi5"]
 
 [node name="Platform" type="Area2D" groups=["platforms"]]
-z_index = -1
+z_index = -21
 collision_mask = 256
 script = ExtResource("1_5jqc6")
 

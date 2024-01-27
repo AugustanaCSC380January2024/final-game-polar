@@ -32,6 +32,7 @@ func _physics_process(delta):
 	update_animations(direction)
 
 func update_animations(direction):
+	
 	if !skeleton_died:
 		if is_attacking == true:
 			animated_sprite.play("attack_" + direction)

@@ -11,7 +11,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgdl5"]
 resource_local_to_scene = true
 shader = ExtResource("1_j51sw")
-shader_parameter/flash_color = Color(0.929412, 0.231373, 0.113725, 1)
+shader_parameter/flash_color = Color(0.87451, 0.176471, 0.101961, 1)
 shader_parameter/flash_modifier = 0.465
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fcb5"]
@@ -509,6 +509,21 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_ie1ag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.465]
+}
+
 [sub_resource type="Animation" id="Animation_13i7x"]
 resource_name = "damage"
 length = 0.5
@@ -523,21 +538,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.785, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_ie1ag"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/flash_modifier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.465]
 }
 
 [sub_resource type="Animation" id="Animation_vkehf"]
@@ -587,6 +587,8 @@ scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_l26s4")
 animation = &"attack_up"
 autoplay = "idle_down"
+frame = 4
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {

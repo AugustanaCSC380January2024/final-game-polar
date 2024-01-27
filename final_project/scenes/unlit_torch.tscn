@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwgh006rsw0n"]
+
+[ext_resource type="Texture2D" uid="uid://qb42b6dw5ygd" path="res://assets/textures/unlit_torch.png" id="1_3n70u"]
+
+[node name="UnlitTorch" type="Sprite2D"]
+texture = ExtResource("1_3n70u")
