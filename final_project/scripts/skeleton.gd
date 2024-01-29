@@ -17,6 +17,7 @@ func _ready():
 	$AnimatedSprite2D/AnimationPlayer.play("ready")
 
 func _physics_process(delta):
+	#print(skeleton_died)
 	if is_attacking:
 		velocity = Vector2()
 	else:
@@ -32,7 +33,6 @@ func _physics_process(delta):
 	update_animations(direction)
 
 func update_animations(direction):
-	
 	if !skeleton_died:
 		if is_attacking == true:
 			animated_sprite.play("attack_" + direction)
@@ -49,16 +49,19 @@ func take_damage(damage: int):
 	health -= damage
 	$AnimatedSprite2D/AnimationPlayer.play("damage")
 	if health <= 0:
+		can_attack = false
 		skeleton_died = true
+		#print(skeleton_died)
 		animated_sprite.play("died")
 		died.emit()
 
 func attack():
-	can_attack = false
-	if player != null:
-		player.take_damage(10)
-		await animated_sprite.animation_finished
-		can_attack = true
+	if !skeleton_died:
+		can_attack = false
+		if player != null:
+			player.take_damage(10)
+			await animated_sprite.animation_finished
+			can_attack = true
 
 
 func _on_hitbox_area_entered(area):

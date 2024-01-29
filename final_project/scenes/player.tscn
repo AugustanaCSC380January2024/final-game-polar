@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2kea2"]
 [ext_resource type="Texture2D" uid="uid://drtwdunne2wc5" path="res://assets/characters/player_spritesheet.png" id="2_lhmst"]
 [ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_nid82"]
-[ext_resource type="Script" path="res://scripts/states/player_walk.gd" id="4_5wvk5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2v0cd"]
 atlas = ExtResource("2_lhmst")
@@ -510,6 +509,31 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt0g5"]
 size = Vector2(27.5, 20)
 
+[sub_resource type="GDScript" id="GDScript_xgijo"]
+script/source = "extends State
+class_name PlayerWalk
+
+@export var player: CharacterBody2D
+var player_speed = 100
+var direction
+func handle_input(event):
+	if Input.is_action_pressed(\"walk_down\"):
+		player.velocity.y = player_speed
+		direction = \"down\"
+	if Input.is_action_pressed(\"walk_up\"):
+		player.velocity.y = -player_speed
+		direction = \"up\"
+	if Input.is_action_pressed(\"walk_left\"):
+		player.velocity.x = -player_speed
+		direction = \"left\"
+	if Input.is_action_pressed(\"walk_right\"):
+		player.velocity.x = player_speed
+		direction = \"right\"
+
+func physics_update(delta):
+	pass
+"
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgqb2"]
 radius = 15.0
 height = 50.0
@@ -546,7 +570,7 @@ zoom = Vector2(2.5, 2.5)
 script = ExtResource("3_nid82")
 
 [node name="PlayerWalk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
-script = ExtResource("4_5wvk5")
+script = SubResource("GDScript_xgijo")
 player = NodePath("../..")
 
 [node name="Hurtbox" type="Area2D" parent="."]
