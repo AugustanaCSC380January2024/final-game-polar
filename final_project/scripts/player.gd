@@ -82,6 +82,7 @@ func attack():
 
 func take_damage(amount):
 	if player_stats.player_health > 0:
+		$AnimatedSprite2D/AnimationPlayer.play("damage")
 		player_stats.player_health -= amount
 		took_damage.emit()
 		if player_stats.player_health <= 0:

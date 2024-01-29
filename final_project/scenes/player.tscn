@@ -1,8 +1,14 @@
-[gd_scene load_steps=72 format=3 uid="uid://b3rugo8jdxodo"]
+[gd_scene load_steps=77 format=3 uid="uid://b3rugo8jdxodo"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2kea2"]
+[ext_resource type="Shader" path="res://scripts/skeleton.gdshader" id="2_4c48h"]
 [ext_resource type="Texture2D" uid="uid://drtwdunne2wc5" path="res://assets/characters/player_spritesheet.png" id="2_lhmst"]
 [ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_nid82"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hthw"]
+shader = ExtResource("2_4c48h")
+shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2v0cd"]
 atlas = ExtResource("2_lhmst")
@@ -506,6 +512,43 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_6kmci"]
+resource_name = "damage"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.57, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mrvut"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcj5d"]
+_data = {
+"RESET": SubResource("Animation_mrvut"),
+"damage": SubResource("Animation_6kmci")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt0g5"]
 size = Vector2(27.5, 20)
 
@@ -553,10 +596,16 @@ motion_mode = 1
 script = ExtResource("1_2kea2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_0hthw")
 position = Vector2(2, 6)
 sprite_frames = SubResource("SpriteFrames_x0xu5")
 animation = &"idle_right"
 autoplay = "idle_down"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_lcj5d")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.50001, 22.5)

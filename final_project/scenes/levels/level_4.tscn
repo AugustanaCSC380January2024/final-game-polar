@@ -31,7 +31,7 @@ position = Vector2(512, -8)
 next_level = ExtResource("3_020wu")
 
 [node name="Skeleton" parent="." instance=ExtResource("5_xo8x3")]
-position = Vector2(194, 15)
+position = Vector2(623, 30)
 
 [node name="Player" parent="." instance=ExtResource("6_10rvh")]
 position = Vector2(78, 11)
@@ -39,5 +39,5 @@ position = Vector2(78, 11)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("7_r3ehn")]
-offset_left = -576.0
-offset_right = -576.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
