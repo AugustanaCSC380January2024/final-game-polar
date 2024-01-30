@@ -12,9 +12,9 @@ func enter():
 
 func physics_update(delta: float):
 	var direction = player.global_position - enemy.global_position
-	if direction.length() <= 30:
+	if direction.length() <= 25:
 		transitioned.emit(self, "EnemyAttack")
-	elif direction.length() > 30 && direction.length() <= 150:
+	elif direction.length() > 25 && direction.length() <= 150:
 		new_velocity = direction.normalized() * move_speed
 	else:
 		transitioned.emit(self, "EnemyWander")

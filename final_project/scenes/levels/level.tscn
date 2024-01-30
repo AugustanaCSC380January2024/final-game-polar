@@ -5133,7 +5133,7 @@ scale = Vector2(24.7374, 30.6962)
 color = Color(0.027451, 0.027451, 0.027451, 1)
 
 [node name="Skeleton2" parent="." instance=ExtResource("4_q6vn0")]
-position = Vector2(126, 100)
+position = Vector2(-98, 236)
 
 [node name="DoorAreas" type="Node2D" parent="."]
 
@@ -5145,7 +5145,7 @@ next_level = ExtResource("9_7gfbn")
 position = Vector2(162, 238)
 
 [node name="Skeleton4" parent="." instance=ExtResource("4_q6vn0")]
-position = Vector2(12, 169)
+position = Vector2(-52, 251)
 
 [node name="Key" parent="." instance=ExtResource("10_vfij2")]
 position = Vector2(209, 246)

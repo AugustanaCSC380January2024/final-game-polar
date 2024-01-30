@@ -599,7 +599,7 @@ script = ExtResource("1_2kea2")
 material = SubResource("ShaderMaterial_0hthw")
 position = Vector2(2, 6)
 sprite_frames = SubResource("SpriteFrames_x0xu5")
-animation = &"idle_right"
+animation = &"attack_left"
 autoplay = "idle_down"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]

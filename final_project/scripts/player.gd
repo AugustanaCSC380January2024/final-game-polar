@@ -9,7 +9,6 @@ class_name Player
 var direction = "down"
 @onready var player_stats = $"/root/PlayerStats"
 var is_attacking = false
-var can_attack = true
 var enemies_to_attack = []
 var player_died = false
 var keys_collected = 0
@@ -24,6 +23,7 @@ func _physics_process(delta):
 	if !player_died:
 		if !Input.is_anything_pressed():
 			velocity = Vector2()
+			
 		move_and_slide()
 		update_animations(direction)
 		if get_slide_collision_count() > 0:
@@ -66,7 +66,7 @@ func _input(event):
 		if !animated_sprite.is_playing():
 			is_attacking = false
 	if Input.is_action_just_pressed("attack"):
-		if can_attack:
+		if !is_attacking:
 			is_attacking = true
 			velocity = Vector2()
 			attack()
@@ -75,11 +75,11 @@ func _input(event):
 
 func attack():
 	AudioPlayer.play_sfx("player_attack")
-	can_attack = false
+	is_attacking = true
 	for body in enemies_to_attack:
 		body.get_parent().take_damage(attack_power)
 	await animated_sprite.animation_finished
-	can_attack = true
+	is_attacking = false
 
 func take_damage(amount):
 	if player_stats.player_health > 0:
@@ -98,15 +98,6 @@ func check_box_collision():
 	var box = get_slide_collision(0).get_collider() as PushObject
 	if box:
 		box.push(velocity)
-
-func interact():
-	pass
-
-func _on_hurtbox_area_entered(area):
-	pass
-
-func _on_hurtbox_area_exited(area):
-	pass
 
 
 func _on_hitbox_area_entered(area):

@@ -57,7 +57,9 @@ func attack():
 	if !skeleton_died:
 		can_attack = false
 		if player != null:
-			player.take_damage(10)
+			await get_tree().create_timer(.2).timeout
+			if !skeleton_died && !player == null:
+				player.take_damage(10)
 			await animated_sprite.animation_finished
 			can_attack = true
 
