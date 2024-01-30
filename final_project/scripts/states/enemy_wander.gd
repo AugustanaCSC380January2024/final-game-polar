@@ -26,8 +26,6 @@ func update(delta: float):
 		randomize_wander()
 
 func physics_update(delta):
-	if enemy.skeleton_died:
-		transitioned.emit(self, "EnemyDied")
 	if enemy:
 		enemy.velocity = move_direction * move_speed
 		if enemy.velocity.x < 0:

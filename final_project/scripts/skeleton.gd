@@ -9,7 +9,7 @@ var direction = "up"
 var is_attacking = false
 var skeleton_died = false
 var can_attack = true
-@export var health = 100
+@export var health = 75
 
 signal died
 
@@ -47,7 +47,7 @@ func _on_hurtbox_body_entered(body):
 func take_damage(damage: int):
 	health -= damage
 	$AnimatedSprite2D/AnimationPlayer.play("damage")
-	if health <= 0:
+	if health <= 0 && !skeleton_died:
 		can_attack = false
 		skeleton_died = true
 		animated_sprite.play("died")
@@ -57,7 +57,6 @@ func attack():
 	if !skeleton_died:
 		can_attack = false
 		if player != null:
-			#await get_tree().create_timer().timeout
 			player.take_damage(10)
 			await animated_sprite.animation_finished
 			can_attack = true

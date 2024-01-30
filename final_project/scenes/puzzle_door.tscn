@@ -32,4 +32,5 @@ collision_mask = 7
 sprite_frames = SubResource("SpriteFrames_gw4ra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
 shape = SubResource("RectangleShape2D_ooe13")

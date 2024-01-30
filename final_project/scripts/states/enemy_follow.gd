@@ -12,8 +12,6 @@ func enter():
 
 func physics_update(delta: float):
 	var direction = player.global_position - enemy.global_position
-	if enemy.skeleton_died:
-		transitioned.emit(self, "EnemyDied")
 	if direction.length() <= 30:
 		transitioned.emit(self, "EnemyAttack")
 	elif direction.length() > 30 && direction.length() <= 150:

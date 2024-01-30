@@ -13,6 +13,7 @@ var can_attack = true
 var enemies_to_attack = []
 var player_died = false
 var keys_collected = 0
+var attack_power = 25
 
 signal died
 signal took_damage
@@ -76,7 +77,7 @@ func attack():
 	AudioPlayer.play_sfx("player_attack")
 	can_attack = false
 	for body in enemies_to_attack:
-		body.get_parent().take_damage(50)
+		body.get_parent().take_damage(attack_power)
 	await animated_sprite.animation_finished
 	can_attack = true
 
