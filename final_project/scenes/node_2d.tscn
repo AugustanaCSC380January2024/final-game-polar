@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://dhrgwpji42fs4"]
+[gd_scene load_steps=4 format=3 uid="uid://dhrgwpji42fs4"]
+
+[ext_resource type="PackedScene" uid="uid://cmmuo7iyq2fvw" path="res://scenes/tile_map.tscn" id="1_f2unk"]
+[ext_resource type="PackedScene" uid="uid://bbjy1my81fjd1" path="res://scenes/historian.tscn" id="2_qhuw5"]
+[ext_resource type="PackedScene" uid="uid://b3rugo8jdxodo" path="res://scenes/player.tscn" id="3_b5reo"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_f2unk")]
+z_index = -2
+layer_0/tile_data = PackedInt32Array(3, 3014656, 17, 65539, 3014656, 18, 4, 3080192, 17, 65540, 3080192, 18, 131075, 3014656, 17, 196611, 3014656, 18, 131076, 3080192, 17, 196612, 3080192, 18, 131077, 3014656, 17, 196613, 3014656, 18, 131078, 3080192, 17, 196614, 3080192, 18, 5, 3014656, 17, 65541, 3014656, 18, 6, 3080192, 17, 65542, 3080192, 18, 131079, 3014656, 17, 196615, 3014656, 18, 131080, 3080192, 17, 196616, 3080192, 18, 7, 3014656, 17, 65543, 3014656, 18, 8, 3080192, 17, 65544, 3080192, 18)
+layer_1/tile_data = PackedInt32Array(9, 3014656, 17, 65545, 3014656, 18, 10, 3080192, 17, 65546, 3080192, 18, 11, 3014656, 17, 65547, 3014656, 18, 12, 3080192, 17, 65548, 3080192, 18, 131083, 3014656, 17, 196619, 3014656, 18, 131084, 3080192, 17, 196620, 3080192, 18, 131081, 3014656, 17, 196617, 3014656, 18, 131082, 3080192, 17, 196618, 3080192, 18, 262155, 3014656, 17, 327691, 3014656, 18, 262156, 3080192, 17, 327692, 3080192, 18, 262153, 3014656, 17, 327689, 3014656, 18, 262154, 3080192, 17, 327690, 3080192, 18, 262151, 3014656, 17, 327687, 3014656, 18, 262152, 3080192, 17, 327688, 3080192, 18, 262149, 3014656, 17, 327685, 3014656, 18, 262150, 3080192, 17, 327686, 3080192, 18, 262147, 3014656, 17, 327683, 3014656, 18, 262148, 3080192, 17, 327684, 3080192, 18)
+
+[node name="Historian" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qhuw5")]
+position = Vector2(68, 22)
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("3_b5reo")]
+position = Vector2(137, 15)
