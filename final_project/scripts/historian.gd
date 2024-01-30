@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 35
+var speed = 75
 
 var is_rescued = false
 var dir = Vector2()
@@ -31,7 +31,8 @@ func _on_interact_area_area_exited(area):
 		area.get_parent().interaction.disconnect(_on_player_interact)
 
 func _on_player_interact():
-	print("interact")
+	$Label1.visible = false
+	$Label2.visible = true
 	is_rescued = true
 	PlayerStats.historian_rescued = true
 	$InteractArea.visible = false

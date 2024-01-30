@@ -7,6 +7,7 @@
 size = Vector2(10, 16)
 
 [node name="HealthPotion" type="Sprite2D" groups=["health_potions"]]
+z_index = -1
 texture = ExtResource("1_d1urc")
 script = ExtResource("2_0j7bl")
 
@@ -15,6 +16,16 @@ collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_yn4xf")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 50
+offset_left = -19.0
+offset_top = -22.0
+offset_right = 63.0
+offset_bottom = 1.0
+scale = Vector2(0.522899, 0.522899)
+text = "Pick Up [E]"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

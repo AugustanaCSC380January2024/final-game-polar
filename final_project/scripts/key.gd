@@ -5,12 +5,14 @@ var player = null
 signal key_picked_up
 
 func _on_area_2d_area_entered(area):
-	if area.get_parent() is Player:
+	if area.get_parent() is Player: 
+		$Label.visible = true
 		player = area.get_parent()
 		player.interaction.connect(_on_player_interact)
 
 func _on_area_2d_area_exited(area):
 	if area.get_parent() is Player:
+		$Label.visible = false
 		player.interaction.disconnect(_on_player_interact)
 		player = null
 

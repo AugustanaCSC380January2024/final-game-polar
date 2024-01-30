@@ -66,4 +66,16 @@ theme_override_fonts/font = ExtResource("1_1ysoo")
 theme_override_font_sizes/font_size = 24
 text = "BACK"
 
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 994.0
+offset_top = 594.0
+offset_right = 1098.0
+offset_bottom = 626.0
+theme_override_fonts/font = ExtResource("1_1ysoo")
+theme_override_font_sizes/font_size = 24
+text = "Next
+"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

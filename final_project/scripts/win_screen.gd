@@ -1,5 +1,13 @@
 extends Control
 
+func _ready():
+	if PlayerStats.historian_rescued:
+		$WinLabel.visible = true
+		$LoseLabel.visible = false
+	else:
+		$WinLabel.visible = false
+		$LoseLabel.visible = true
+
 func _on_play_again_pressed():
 	$"/root/PlayerStats".player_health = 100
 	$"/root/PlayerStats".keys_collected = 0

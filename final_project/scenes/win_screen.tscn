@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://pmv31vhtc8ud"]
+[gd_scene load_steps=5 format=3 uid="uid://pmv31vhtc8ud"]
 
 [ext_resource type="FontFile" uid="uid://cfbenm167udpo" path="res://assets/PublicPixel-z84yD.ttf" id="1_61wqr"]
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_u7qkp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lg2v7"]
+font = ExtResource("1_61wqr")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_hf3o0"]
 font = ExtResource("1_61wqr")
 font_size = 48
 
@@ -28,7 +32,7 @@ offset_bottom = 40.0
 scale = Vector2(29.4119, 16.8306)
 color = Color(0.164706, 0.164706, 0.164706, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="WinLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,9 +45,9 @@ offset_right = 288.0
 offset_bottom = -55.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "YOU ESCAPED 
+text = "YOU RESCUED
 
-THE DUNGEON!"
+THE HISTORIAN!"
 label_settings = SubResource("LabelSettings_lg2v7")
 horizontal_alignment = 1
 
@@ -97,6 +101,25 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_61wqr")
 theme_override_font_sizes/font_size = 30
 text = "EXIT"
+
+[node name="LoseLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -205.0
+offset_right = 384.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU FORGOT
+
+THE HISTORIAN"
+label_settings = SubResource("LabelSettings_hf3o0")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
